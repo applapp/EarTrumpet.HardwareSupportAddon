@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Windows;
 using EarTrumpet.DataModel.Audio;
-using EarTrumpet.DataModel.Hardware;
+using EarTrumpet.HardwareControls.Interop.Hardware;
+using EarTrumpet.HardwareControls.ViewModels;
+using EarTrumpet.HardwareControls.Views;
 using EarTrumpet.UI.ViewModels;
-using EarTrumpet.UI.Views;
 
-namespace EarTrumpet.DataModel.Deej
+namespace EarTrumpet.HardwareControls.Interop.Deej
 {
     public class DeejAppBinding: HardwareAppBinding
     {

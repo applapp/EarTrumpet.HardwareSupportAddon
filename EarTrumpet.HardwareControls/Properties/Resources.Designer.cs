@@ -59,5 +59,446 @@ namespace EarTrumpet.HardwareControls.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New From Selected.
+        /// </summary>
+        public static string AddNewFromSelectedText {
+            get {
+                return ResourceManager.GetString("AddNewFromSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New.
+        /// </summary>
+        public static string AddNewText {
+            get {
+                return ResourceManager.GetString("AddNewText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *All Devices*.
+        /// </summary>
+        public static string AllAudioDevicesSelectionText {
+            get {
+                return ResourceManager.GetString("AllAudioDevicesSelectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Mute.
+        /// </summary>
+        public static string ApplicationMuteText {
+            get {
+                return ResourceManager.GetString("ApplicationMuteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Selection.
+        /// </summary>
+        public static string ApplicationSelectionText {
+            get {
+                return ResourceManager.GetString("ApplicationSelectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Volume.
+        /// </summary>
+        public static string ApplicationVolumeText {
+            get {
+                return ResourceManager.GetString("ApplicationVolumeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device Mute.
+        /// </summary>
+        public static string AudioDeviceMuteText {
+            get {
+                return ResourceManager.GetString("AudioDeviceMuteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Device.
+        /// </summary>
+        public static string AudioDeviceText {
+            get {
+                return ResourceManager.GetString("AudioDeviceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device Volume.
+        /// </summary>
+        public static string AudioDeviceVolumeText {
+            get {
+                return ResourceManager.GetString("AudioDeviceVolumeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Button.
+        /// </summary>
+        public static string ButtonText {
+            get {
+                return ResourceManager.GetString("ButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command.
+        /// </summary>
+        public static string CommandText {
+            get {
+                return ResourceManager.GetString("CommandText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control.
+        /// </summary>
+        public static string ControlText {
+            get {
+                return ResourceManager.GetString("ControlText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle Default Device.
+        /// </summary>
+        public static string CycleDefaultDevices {
+            get {
+                return ResourceManager.GetString("CycleDefaultDevices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrease.
+        /// </summary>
+        public static string DecreaseText {
+            get {
+                return ResourceManager.GetString("DecreaseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to deej Control Wizard.
+        /// </summary>
+        public static string DeejControlWizardText {
+            get {
+                return ResourceManager.GetString("DeejControlWizardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Selected.
+        /// </summary>
+        public static string DeleteSelectedText {
+            get {
+                return ResourceManager.GetString("DeleteSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device.
+        /// </summary>
+        public static string DeviceText {
+            get {
+                return ResourceManager.GetString("DeviceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device Type.
+        /// </summary>
+        public static string DeviceTypeText {
+            get {
+                return ResourceManager.GetString("DeviceTypeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Selected.
+        /// </summary>
+        public static string EditSelectedText {
+            get {
+                return ResourceManager.GetString("EditSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control system- and application volumes using a controller hardware (MIDI and deej devices supported)..
+        /// </summary>
+        public static string HardwareControlInformation {
+            get {
+                return ResourceManager.GetString("HardwareControlInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware Controls.
+        /// </summary>
+        public static string HardwareControlsTitle {
+            get {
+                return ResourceManager.GetString("HardwareControlsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release the selected button and click corresponding &apos;Set&apos; (while released). Then press the selected button and click corresponding &apos;Set&apos; (while pressed)..
+        /// </summary>
+        public static string HardwareControlWizardMinMaxButtonControlTypeInstructions {
+            get {
+                return ResourceManager.GetString("HardwareControlWizardMinMaxButtonControlTypeInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move the selected control to the minimum value and click corresponding &apos;Set&apos;. Then move the selected control to the maximum value and click corresponding &apos;Set&apos;..
+        /// </summary>
+        public static string HardwareControlWizardMinMaxLinearPotentiometerControlTypeInstructions {
+            get {
+                return ResourceManager.GetString("HardwareControlWizardMinMaxLinearPotentiometerControlTypeInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn the selected rotary control in decreasing direction and click corresponding &apos;Set&apos;. Then turn the selected rotary control in increasing direction and click corresponding &apos;Set&apos;..
+        /// </summary>
+        public static string HardwareControlWizardMinMaxRotaryEncoderControlTypeInstructions {
+            get {
+                return ResourceManager.GetString("HardwareControlWizardMinMaxRotaryEncoderControlTypeInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add / Edit Hardware Control.
+        /// </summary>
+        public static string HardwareSettingsText {
+            get {
+                return ResourceManager.GetString("HardwareSettingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move / press the hardware control element to be used. -&gt; Captured changes are listed in the table below. -&gt; Select the control to be assigned..
+        /// </summary>
+        public static string HardwareWizardInstructions {
+            get {
+                return ResourceManager.GetString("HardwareWizardInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incomplete device configuration!.
+        /// </summary>
+        public static string IncompleteDeviceConfigurationMessage {
+            get {
+                return ResourceManager.GetString("IncompleteDeviceConfigurationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase.
+        /// </summary>
+        public static string IncreaseText {
+            get {
+                return ResourceManager.GetString("IncreaseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indexed.
+        /// </summary>
+        public static string IndexedText {
+            get {
+                return ResourceManager.GetString("IndexedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linear Potentiometer.
+        /// </summary>
+        public static string LinearPotentiometerText {
+            get {
+                return ResourceManager.GetString("LinearPotentiometerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum.
+        /// </summary>
+        public static string MaximumText {
+            get {
+                return ResourceManager.GetString("MaximumText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIDI Control Wizard.
+        /// </summary>
+        public static string MidiControlWizardText {
+            get {
+                return ResourceManager.GetString("MidiControlWizardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIDI Device.
+        /// </summary>
+        public static string MidiDeviceText {
+            get {
+                return ResourceManager.GetString("MidiDeviceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum.
+        /// </summary>
+        public static string MinimumText {
+            get {
+                return ResourceManager.GetString("MinimumText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode.
+        /// </summary>
+        public static string ModeText {
+            get {
+                return ResourceManager.GetString("ModeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No control selected!.
+        /// </summary>
+        public static string NoControlSelectedMessage {
+            get {
+                return ResourceManager.GetString("NoControlSelectedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string PreviewValueText {
+            get {
+                return ResourceManager.GetString("PreviewValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pushed.
+        /// </summary>
+        public static string PushedText {
+            get {
+                return ResourceManager.GetString("PushedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Released.
+        /// </summary>
+        public static string ReleasedText {
+            get {
+                return ResourceManager.GetString("ReleasedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rotary Encoder.
+        /// </summary>
+        public static string RotaryEncoderText {
+            get {
+                return ResourceManager.GetString("RotaryEncoderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string SaveText {
+            get {
+                return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling.
+        /// </summary>
+        public static string ScalingText {
+            get {
+                return ResourceManager.GetString("ScalingText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection.
+        /// </summary>
+        public static string SelectionText {
+            get {
+                return ResourceManager.GetString("SelectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        public static string SelectText {
+            get {
+                return ResourceManager.GetString("SelectText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set As Default Device.
+        /// </summary>
+        public static string SetAsDefaultDevice {
+            get {
+                return ResourceManager.GetString("SetAsDefaultDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set.
+        /// </summary>
+        public static string SetText {
+            get {
+                return ResourceManager.GetString("SetText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string TypeText {
+            get {
+                return ResourceManager.GetString("TypeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown device selected!.
+        /// </summary>
+        public static string UnknownDeviceSelectedMessageText {
+            get {
+                return ResourceManager.GetString("UnknownDeviceSelectedMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown device type selected!.
+        /// </summary>
+        public static string UnknownDeviceTypeSelectedMessageText {
+            get {
+                return ResourceManager.GetString("UnknownDeviceTypeSelectedMessageText", resourceCulture);
+            }
+        }
     }
 }

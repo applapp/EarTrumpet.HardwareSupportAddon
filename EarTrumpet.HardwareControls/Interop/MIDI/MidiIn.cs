@@ -6,7 +6,7 @@ using Windows.Devices.Enumeration;
 using Windows.Devices.Midi;
 using System.Threading.Tasks;
 
-namespace EarTrumpet.DataModel.MIDI
+namespace EarTrumpet.HardwareControls.Interop.MIDI
 {
     public static class MidiIn
     {

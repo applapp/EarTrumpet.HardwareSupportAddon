@@ -2,7 +2,7 @@
 using Windows.Devices.Enumeration;
 using Windows.Devices.Midi;
 
-namespace EarTrumpet.DataModel.MIDI
+namespace EarTrumpet.HardwareControls.Interop.MIDI
 {
     public class MidiInDevice
     {

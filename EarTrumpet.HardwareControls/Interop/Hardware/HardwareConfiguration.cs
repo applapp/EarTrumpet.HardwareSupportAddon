@@ -1,8 +1,8 @@
-﻿using System.Xml.Serialization;
-using EarTrumpet.DataModel.Deej;
-using EarTrumpet.DataModel.MIDI;
+﻿using EarTrumpet.HardwareControls.Interop.Deej;
+using EarTrumpet.HardwareControls.Interop.MIDI;
+using System.Xml.Serialization;
 
-namespace EarTrumpet.DataModel.Hardware
+namespace EarTrumpet.HardwareControls.Interop.Hardware
 {
     [XmlInclude(typeof(MidiConfiguration))]
     [XmlInclude(typeof(DeejConfiguration))]

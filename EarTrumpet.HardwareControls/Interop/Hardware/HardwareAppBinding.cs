@@ -4,9 +4,10 @@ using System.Linq;
 using System.Windows;
 using EarTrumpet.DataModel.Audio;
 using EarTrumpet.DataModel.Storage;
+using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.UI.ViewModels;
 
-namespace EarTrumpet.DataModel.Hardware
+namespace EarTrumpet.HardwareControls.Interop.Hardware
 {
     public abstract class HardwareAppBinding
     {

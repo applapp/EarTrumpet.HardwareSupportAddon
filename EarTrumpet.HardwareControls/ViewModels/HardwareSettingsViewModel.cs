@@ -3,10 +3,11 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using EarTrumpet.UI.Helpers;
-using EarTrumpet.DataModel.Hardware;
 using EarTrumpet.Extensions;
+using EarTrumpet.HardwareControls.Interop.Hardware;
+using EarTrumpet.UI.ViewModels;
 
-namespace EarTrumpet.UI.ViewModels
+namespace EarTrumpet.HardwareControls.ViewModels
 {
     public class HardwareSettingsViewModel : BindableBase
     {

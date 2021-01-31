@@ -1,6 +1,6 @@
-﻿using EarTrumpet.DataModel.Hardware;
+﻿using EarTrumpet.HardwareControls.Interop.Hardware;
 
-namespace EarTrumpet.DataModel.Deej
+namespace EarTrumpet.HardwareControls.Interop.Deej
 {
     public class DeejConfiguration: HardwareConfiguration
     {

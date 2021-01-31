@@ -5,11 +5,11 @@ using System.Windows.Input;
 using Windows.Devices.Midi;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using EarTrumpet.Properties;
+using EarTrumpet.HardwareControls.Properties;
 using EarTrumpet.UI.Helpers;
-using EarTrumpet.DataModel.MIDI;
+using EarTrumpet.HardwareControls.Interop.MIDI;
 
-namespace EarTrumpet.UI.ViewModels
+namespace EarTrumpet.HardwareControls.ViewModels
 {
     class MIDIControlWizardViewModel : BindableBase
     {

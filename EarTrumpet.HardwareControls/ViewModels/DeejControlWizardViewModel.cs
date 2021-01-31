@@ -4,11 +4,10 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using EarTrumpet.Properties;
 using EarTrumpet.UI.Helpers;
-using EarTrumpet.DataModel.Deej;
+using EarTrumpet.HardwareControls.Interop.Deej;
 
-namespace EarTrumpet.UI.ViewModels
+namespace EarTrumpet.HardwareControls.ViewModels
 {
     class DeejControlWizardViewModel : BindableBase
     {
@@ -128,7 +127,7 @@ namespace EarTrumpet.UI.ViewModels
                 if (!deviceFound)
                 {
                     // The selected device is unknown. This should never happen.
-                    MessageBox.Show(Resources.UnknownDeviceSelectedMessageText, "EarTrumpet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Properties.Resources.UnknownDeviceSelectedMessageText, "EarTrumpet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -192,7 +191,7 @@ namespace EarTrumpet.UI.ViewModels
             if (string.IsNullOrEmpty(SelectedDeej) ||
                 string.IsNullOrEmpty(CapturedDeejInControls[CapturedDeejInControlsSelected]))
             {
-                MessageBox.Show(Resources.IncompleteDeviceConfigurationMessage, "EarTrumpet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Properties.Resources.IncompleteDeviceConfigurationMessage, "EarTrumpet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

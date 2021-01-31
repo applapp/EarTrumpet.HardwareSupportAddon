@@ -1,6 +1,6 @@
-﻿using EarTrumpet.DataModel.Hardware;
+﻿using EarTrumpet.HardwareControls.Interop.Hardware;
 
-namespace EarTrumpet.DataModel.MIDI
+namespace EarTrumpet.HardwareControls.Interop.MIDI
 {
     public enum ControllerTypes
     {

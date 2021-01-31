@@ -4,12 +4,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using EarTrumpet.DataModel.Audio;
-using EarTrumpet.DataModel.Deej;
-using EarTrumpet.DataModel.MIDI;
+using EarTrumpet.HardwareControls.Interop.Deej;
+using EarTrumpet.HardwareControls.Interop.MIDI;
+using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.UI.Helpers;
 using EarTrumpet.UI.ViewModels;
 
-namespace EarTrumpet.DataModel.Hardware
+namespace EarTrumpet.HardwareControls.Interop.Hardware
 {
     public class HardwareManager
     {

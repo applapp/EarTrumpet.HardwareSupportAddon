@@ -1,4 +1,4 @@
-﻿namespace EarTrumpet.DataModel.Hardware
+﻿namespace EarTrumpet.HardwareControls.Interop.Hardware
 {
     public class CommandControlMappingElement
     {

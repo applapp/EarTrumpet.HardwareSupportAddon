@@ -7,7 +7,7 @@ using System.Linq;
 using Windows.Devices.Enumeration;
 using Windows.Devices.SerialCommunication;
 
-namespace EarTrumpet.DataModel.Deej
+namespace EarTrumpet.HardwareControls.Interop.Deej
 {
     public static class DeejIn
     {

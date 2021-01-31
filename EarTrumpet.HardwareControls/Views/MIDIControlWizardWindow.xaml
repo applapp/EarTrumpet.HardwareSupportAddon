@@ -1,36 +1,161 @@
-﻿<Window x:Class="EarTrumpet.UI.Views.MIDIControlWizardWindow"
+﻿<Window x:Class="EarTrumpet.HardwareControls.Views.MIDIControlWizardWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:resx="clr-namespace:EarTrumpet.Properties"
-        
-        xmlns:local="clr-namespace:EarTrumpet.UI.Views"
-        mc:Ignorable="d"
-        Title="{x:Static resx:Resources.MidiControlWizardText}" Height="502.001" Width="400">
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resx="clr-namespace:EarTrumpet.HardwareControls.Properties"
+        Title="{x:Static resx:Resources.MidiControlWizardText}"
+        Width="400"
+        Height="502.001"
+        mc:Ignorable="d">
     <Grid Margin="0,0,-8,0">
-        <ComboBox HorizontalAlignment="Left" Height="23" Margin="121,129,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.497,0.5" ItemsSource="{Binding CapturedMidiInControls}" SelectedIndex="{Binding CapturedMidiInControlsSelected}" IsSynchronizedWithCurrentItem="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FFE4E4E4" Style="{DynamicResource {x:Type ItemsControl}}">
-        </ComboBox>
-        <TextBlock TextWrapping="WrapWithOverflow" Margin="10,47,10,0" Height="77" VerticalAlignment="Top" Text="{x:Static resx:Resources.HardwareWizardInstructions}" />
-        <ProgressBar HorizontalAlignment="Left" Height="26" Margin="121,392,0,0" VerticalAlignment="Top" Width="257" Value="{Binding PreviewValue}" Name="PreviewValueProgressBar"/>
-        <TextBlock Text="{Binding ElementName=PreviewValueProgressBar, Path=Value, StringFormat={}{0:0} %}" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.515" Margin="224,397,0,0" Width="53" TextAlignment="Center" Height="17" />
-        <Label Content="{x:Static resx:Resources.PreviewValueText}" HorizontalAlignment="Left" Margin="10,392,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding ScaleMaxValueSelectDescription}" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding ScaleMinValueSelectDescription}" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top"/>
-        <Button Content="{x:Static resx:Resources.SaveText}" HorizontalAlignment="Left" Margin="303,436,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveMidiControlCommand}" Style="{DynamicResource {x:Type ContentControl}}"/>
-        <TextBlock TextWrapping="WrapWithOverflow" Margin="10,201,10,0" Height="77" VerticalAlignment="Top" Text="{Binding MidiWizardMinMaxInstructions}" />
-        <Button Content="{x:Static resx:Resources.SetText}" HorizontalAlignment="Left" Margin="121,283,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource {x:Type ContentControl}}" Command="{Binding SetMinValueCommand}"/>
-        <Button Content="{x:Static resx:Resources.SetText}" HorizontalAlignment="Left" Margin="121,310,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource {x:Type ContentControl}}" Command="{Binding SetMaxValueCommand}"/>
-        <Label Content="{x:Static resx:Resources.ScalingText}" HorizontalAlignment="Left" Margin="10,344,0,0" VerticalAlignment="Top" Width="85" Height="26"/>
-        <Slider Name ="ScalingValueSlider" HorizontalAlignment="Left" Margin="121,344,0,0" VerticalAlignment="Top" Style="{DynamicResource {x:Type Slider}}" RenderTransformOrigin="0.583,0.51" Width="257" Minimum="0" Maximum="{Binding ScalingMaximum}" TickFrequency="{Binding ScalingTickFrequency}" IsSnapToTickEnabled="True" Value="{Binding ScalingValue}"/>
-        <TextBlock Text="{Binding Value, ElementName=ScalingValueSlider, StringFormat=\{0:F2\}}" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.515" Margin="224,370,0,0" Width="53" TextAlignment="Center" Height="17" />
-        <Label Content="{Binding MinValue}" HorizontalAlignment="Left" Margin="242,280,0,0" VerticalAlignment="Top" Height="25" Width="51"/>
-        <Label Content="{Binding MaxValue}" HorizontalAlignment="Left" Margin="242,310,0,0" VerticalAlignment="Top" Height="26" Width="51"/>
-        <ComboBox HorizontalAlignment="Left" Height="23" Margin="121,157,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.497,0.5" ItemsSource="{Binding ControlTypes}" SelectedIndex="{Binding ControlTypeSelected}" IsSynchronizedWithCurrentItem="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FFE4E4E4" Style="{DynamicResource {x:Type ItemsControl}}"/>
-        <Label Content="{x:Static resx:Resources.TypeText}" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="106"/>
-        <Label Content="{x:Static resx:Resources.ControlText}" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="106"/>
-        <Label Content="{x:Static resx:Resources.DeviceText}" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="106" />
-        <ComboBox x:Name="ComboBoxAvailableMidiDevices" HorizontalAlignment="Left" Margin="121,10,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding MidiDevices}" Style="{DynamicResource {x:Type ItemsControl}}" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True" SelectedItem="{Binding SelectedMidi}"/>
+        <ComboBox Width="257"
+                  Height="23"
+                  Margin="121,129,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Background="#FFE4E4E4"
+                  IsSynchronizedWithCurrentItem="True"
+                  ItemsSource="{Binding CapturedMidiInControls}"
+                  RenderTransformOrigin="0.497,0.5"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  SelectedIndex="{Binding CapturedMidiInControlsSelected}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <TextBlock Height="77"
+                   Margin="10,47,10,0"
+                   VerticalAlignment="Top"
+                   Text="{x:Static resx:Resources.HardwareWizardInstructions}"
+                   TextWrapping="WrapWithOverflow" />
+        <ProgressBar Name="PreviewValueProgressBar"
+                     Width="257"
+                     Height="26"
+                     Margin="121,392,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Value="{Binding PreviewValue}" />
+        <TextBlock Width="53"
+                   Height="17"
+                   Margin="224,397,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   RenderTransformOrigin="0.491,0.515"
+                   Text="{Binding ElementName=PreviewValueProgressBar, Path=Value, StringFormat={}{0:0} %}"
+                   TextAlignment="Center" />
+        <Label Margin="10,392,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.PreviewValueText}" />
+        <Label Margin="10,310,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{Binding ScaleMaxValueSelectDescription}" />
+        <Label Margin="10,279,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{Binding ScaleMinValueSelectDescription}" />
+        <Button Width="75"
+                Margin="303,436,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding SaveMidiControlCommand}"
+                Content="{x:Static resx:Resources.SaveText}"
+                Style="{DynamicResource {x:Type ContentControl}}" />
+        <TextBlock Height="77"
+                   Margin="10,201,10,0"
+                   VerticalAlignment="Top"
+                   Text="{Binding MidiWizardMinMaxInstructions}"
+                   TextWrapping="WrapWithOverflow" />
+        <Button Width="75"
+                Margin="121,283,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding SetMinValueCommand}"
+                Content="{x:Static resx:Resources.SetText}"
+                Style="{DynamicResource {x:Type ContentControl}}" />
+        <Button Width="75"
+                Margin="121,310,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding SetMaxValueCommand}"
+                Content="{x:Static resx:Resources.SetText}"
+                Style="{DynamicResource {x:Type ContentControl}}" />
+        <Label Width="85"
+               Height="26"
+               Margin="10,344,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.ScalingText}" />
+        <Slider Name="ScalingValueSlider"
+                Width="257"
+                Margin="121,344,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                IsSnapToTickEnabled="True"
+                Maximum="{Binding ScalingMaximum}"
+                Minimum="0"
+                RenderTransformOrigin="0.583,0.51"
+                Style="{DynamicResource {x:Type Slider}}"
+                TickFrequency="{Binding ScalingTickFrequency}"
+                Value="{Binding ScalingValue}" />
+        <TextBlock Width="53"
+                   Height="17"
+                   Margin="224,370,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   RenderTransformOrigin="0.491,0.515"
+                   Text="{Binding Value, ElementName=ScalingValueSlider, StringFormat=\{0:F2\}}"
+                   TextAlignment="Center" />
+        <Label Width="51"
+               Height="25"
+               Margin="242,280,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{Binding MinValue}" />
+        <Label Width="51"
+               Height="26"
+               Margin="242,310,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{Binding MaxValue}" />
+        <ComboBox Width="257"
+                  Height="23"
+                  Margin="121,157,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Background="#FFE4E4E4"
+                  IsSynchronizedWithCurrentItem="True"
+                  ItemsSource="{Binding ControlTypes}"
+                  RenderTransformOrigin="0.497,0.5"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  SelectedIndex="{Binding ControlTypeSelected}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <Label Width="106"
+               Margin="10,154,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.TypeText}" />
+        <Label Width="106"
+               Margin="10,126,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.ControlText}" />
+        <Label Width="106"
+               Margin="10,6,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.DeviceText}" />
+        <ComboBox x:Name="ComboBoxAvailableMidiDevices"
+                  Width="257"
+                  Margin="121,10,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding MidiDevices}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  SelectedItem="{Binding SelectedMidi}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
 
     </Grid>
 </Window>

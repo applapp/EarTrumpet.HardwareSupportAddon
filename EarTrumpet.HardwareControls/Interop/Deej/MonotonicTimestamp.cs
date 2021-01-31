@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace EarTrumpet.DataModel.Deej
+namespace EarTrumpet.HardwareControls.Interop.Deej
 {
     public struct MonotonicTimestamp
     {

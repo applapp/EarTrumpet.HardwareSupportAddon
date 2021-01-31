@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Windows;
 using Windows.Devices.Midi;
 using EarTrumpet.DataModel.Audio;
-using EarTrumpet.DataModel.Hardware;
 using EarTrumpet.UI.ViewModels;
 using EarTrumpet.UI.Views;
+using EarTrumpet.HardwareControls.Interop.Hardware;
+using EarTrumpet.HardwareControls.ViewModels;
+using EarTrumpet.HardwareControls.Views;
 
-namespace EarTrumpet.DataModel.MIDI
+namespace EarTrumpet.HardwareControls.Interop.MIDI
 {
     public class MidiAppBinding: HardwareAppBinding
     {
@@ -86,7 +88,7 @@ namespace EarTrumpet.DataModel.MIDI
            
             if (!(loadedConfig is MidiConfiguration))
             {
-                viewModel = new MIDIControlWizardViewModel(EarTrumpet.Properties.Resources.MidiControlWizardText, 
+                viewModel = new MIDIControlWizardViewModel(Properties.Resources.MidiControlWizardText, 
                     hardwareSettingsViewModel);
             }
             else

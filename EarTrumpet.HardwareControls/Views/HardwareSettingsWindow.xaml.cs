@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Forms;
 
-namespace EarTrumpet.UI.Views
+namespace EarTrumpet.HardwareControls.Views
 {
     public partial class HardwareSettingsWindow : Window
     {

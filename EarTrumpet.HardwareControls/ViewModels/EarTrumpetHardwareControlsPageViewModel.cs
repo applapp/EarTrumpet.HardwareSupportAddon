@@ -3,11 +3,12 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
-using EarTrumpet.UI.Views;
 using EarTrumpet.UI.Helpers;
-using EarTrumpet.DataModel.Hardware;
+using EarTrumpet.UI.ViewModels;
+using EarTrumpet.HardwareControls.Interop.Hardware;
+using EarTrumpet.HardwareControls.Views;
 
-namespace EarTrumpet.UI.ViewModels
+namespace EarTrumpet.HardwareControls.ViewModels
 {
     public class EarTrumpetHardwareControlsPageViewModel : SettingsPageViewModel
     {

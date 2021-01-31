@@ -1,28 +1,116 @@
-﻿<Window x:Class="EarTrumpet.UI.Views.HardwareSettingsWindow"
+﻿<Window x:Class="EarTrumpet.HardwareControls.Views.HardwareSettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:resx="clr-namespace:EarTrumpet.Properties"
-        
-        xmlns:local="clr-namespace:EarTrumpet.UI.Views"
-        mc:Ignorable="d"
-        Title="{x:Static resx:Resources.HardwareSettingsText}" Height="361.334" Width="341">
-    <Grid HorizontalAlignment="Left" Width="333" Margin="0,0,0,5">
-        <Label Content="{x:Static resx:Resources.DeviceTypeText}" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" />
-        <ComboBox x:Name="ComboBoxDeviceType" HorizontalAlignment="Left" Margin="108,118,0,0" VerticalAlignment="Top" Width="210" ItemsSource="{Binding DeviceTypes}" Style="{DynamicResource {x:Type ItemsControl}}" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True" SelectedItem="{Binding SelectedDeviceType}"/>
-        <Label Content="{x:Static resx:Resources.CommandText}" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ComboBoxCommand" HorizontalAlignment="Left" Margin="108,37,0,0" VerticalAlignment="Top" Width="210" Style="{DynamicResource {x:Type ItemsControl}}" ItemsSource="{Binding Commands}" IsReadOnly="True" SelectedItem="{Binding SelectedCommand}"/>
-        <Label Content="{x:Static resx:Resources.ControlText}" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ButtonSelectControl" Content="{x:Static resx:Resources.SelectText}" HorizontalAlignment="Left" Margin="108,148,0,0" VerticalAlignment="Top" Width="62" Style="{DynamicResource {x:Type ContentControl}}" Command="{Binding SelectControlCommand}" />
-        <TextBlock x:Name="LabelSelectedControl" Text="{Binding SelectedControl}" HorizontalAlignment="Left" Margin="108,176,0,0" Width="210" Height="115" VerticalAlignment="Top" TextWrapping="Wrap"/>
-        <Button x:Name="ButtonSaveControlCommand" Content="{x:Static resx:Resources.SaveText}" HorizontalAlignment="Left" Margin="256,296,0,0" VerticalAlignment="Top" Width="62" Style="{DynamicResource {x:Type ContentControl}}" RenderTransformOrigin="0.532,0.4" Command="{Binding SaveCommandControlMappingCommand}"/>
-        <Label Content="{x:Static resx:Resources.ModeText}" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ComboBoxMode" HorizontalAlignment="Left" Margin="108,64,0,0" VerticalAlignment="Top" Width="210" Style="{DynamicResource {x:Type ItemsControl}}" ItemsSource="{Binding Modes}" IsReadOnly="True" SelectedItem="{Binding SelectedMode}" IsEnabled="{Binding ModeSelectionEnabled}" />
-        <Label Content="{x:Static resx:Resources.SelectionText}" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ComboBoxIndexesApplications" HorizontalAlignment="Left" Margin="108,91,0,0" VerticalAlignment="Top" Width="210" Style="{DynamicResource {x:Type ItemsControl}}" ItemsSource="{Binding ApplicationIndexesNames}" IsReadOnly="True" SelectedItem="{Binding SelectedIndexesApplications}" IsEnabled="{Binding IndexesApplicationsSelectionEnabled}"/>
-        <Label Content="{x:Static resx:Resources.AudioDeviceText}" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ComboBoxAudioDevice" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="210" Style="{DynamicResource {x:Type ItemsControl}}" ItemsSource="{Binding AudioDevices}" IsReadOnly="True" SelectedItem="{Binding SelectedDevice}"/>
-        <Label Content="{x:Static resx:Resources.SelectionText}" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top"/>
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resx="clr-namespace:EarTrumpet.HardwareControls.Properties"
+        Title="{x:Static resx:Resources.HardwareSettingsText}"
+        Width="341"
+        Height="361.334"
+        mc:Ignorable="d">
+    <Grid Width="333"
+          Margin="0,0,0,5"
+          HorizontalAlignment="Left">
+        <Label Margin="10,114,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.DeviceTypeText}" />
+        <ComboBox x:Name="ComboBoxDeviceType"
+                  Width="210"
+                  Margin="108,118,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding DeviceTypes}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  SelectedItem="{Binding SelectedDeviceType}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <Label Margin="10,33,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.CommandText}" />
+        <ComboBox x:Name="ComboBoxCommand"
+                  Width="210"
+                  Margin="108,37,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Commands}"
+                  SelectedItem="{Binding SelectedCommand}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <Label Margin="10,145,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.ControlText}" />
+        <Button x:Name="ButtonSelectControl"
+                Width="62"
+                Margin="108,148,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding SelectControlCommand}"
+                Content="{x:Static resx:Resources.SelectText}"
+                Style="{DynamicResource {x:Type ContentControl}}" />
+        <TextBlock x:Name="LabelSelectedControl"
+                   Width="210"
+                   Height="115"
+                   Margin="108,176,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="{Binding SelectedControl}"
+                   TextWrapping="Wrap" />
+        <Button x:Name="ButtonSaveControlCommand"
+                Width="62"
+                Margin="256,296,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding SaveCommandControlMappingCommand}"
+                Content="{x:Static resx:Resources.SaveText}"
+                RenderTransformOrigin="0.532,0.4"
+                Style="{DynamicResource {x:Type ContentControl}}" />
+        <Label Margin="10,60,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.ModeText}" />
+        <ComboBox x:Name="ComboBoxMode"
+                  Width="210"
+                  Margin="108,64,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  IsEnabled="{Binding ModeSelectionEnabled}"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Modes}"
+                  SelectedItem="{Binding SelectedMode}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <Label Margin="10,88,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.SelectionText}" />
+        <ComboBox x:Name="ComboBoxIndexesApplications"
+                  Width="210"
+                  Margin="108,91,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  IsEnabled="{Binding IndexesApplicationsSelectionEnabled}"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding ApplicationIndexesNames}"
+                  SelectedItem="{Binding SelectedIndexesApplications}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <Label Margin="10,6,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.AudioDeviceText}" />
+        <ComboBox x:Name="ComboBoxAudioDevice"
+                  Width="210"
+                  Margin="108,10,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding AudioDevices}"
+                  SelectedItem="{Binding SelectedDevice}"
+                  Style="{DynamicResource {x:Type ItemsControl}}" />
+        <Label Margin="10,171,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="{x:Static resx:Resources.SelectionText}" />
     </Grid>
 </Window>
