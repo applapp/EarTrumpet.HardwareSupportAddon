@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d014a1dd-261d-4f9b-ad30-0a7e4b704170</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>EarTrumpet.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\AppExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Filter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\PlaybackDataModelHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DeviceIconhelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResourceLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimpleIconSource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
+  </ItemGroup>
+</Project>
