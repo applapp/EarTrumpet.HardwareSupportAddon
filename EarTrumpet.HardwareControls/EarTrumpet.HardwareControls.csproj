@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -50,8 +51,54 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Microsoft.Windows.Design.Extensibility, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Design\Microsoft.Xaml.Behaviors.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Windows, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(MSBuildProgramFiles32)\Windows Kits\10\UnionMetadata\Windows.winmd')">$(MSBuildProgramFiles32)\Windows Kits\10\UnionMetadata\Windows.winmd</HintPath>
+      <HintPath Condition="Exists('$(MSBuildProgramFiles32)\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd')">$(MSBuildProgramFiles32)\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interop\Deej\DeejAppBinding.cs" />
+    <Compile Include="Interop\Deej\DeejConfiguration.cs" />
+    <Compile Include="Interop\Deej\DeejIn.cs" />
+    <Compile Include="Interop\Deej\MonotonicTimestamp.cs" />
+    <Compile Include="Interop\Hardware\CommandControlMappingElement.cs" />
+    <Compile Include="Interop\Hardware\HardwareAppBinding.cs" />
+    <Compile Include="Interop\Hardware\HardwareConfiguration.cs" />
+    <Compile Include="Interop\Hardware\HardwareManager.cs" />
+    <Compile Include="Interop\MIDI\MidiAppBinding.cs" />
+    <Compile Include="Interop\MIDI\MidiConfiguration.cs" />
+    <Compile Include="Interop\MIDI\MidiIn.cs" />
+    <Compile Include="Interop\MIDI\MidiInDevice.cs" />
+    <Compile Include="ViewModels\EarTrumpetHardwareControlsPageViewModel.cs" />
+    <Compile Include="ViewModels\DeejControlWizardViewModel.cs" />
+    <Compile Include="ViewModels\MIDIControlWizardViewModel.cs" />
+    <Compile Include="ViewModels\HardwareSettingsViewModel.cs" />
+    <Compile Include="Views\DeejControlWizardWindow.xaml.cs">
+      <DependentUpon>DeejControlWizardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MIDIControlWizardWindow.xaml.cs">
+      <DependentUpon>MIDIControlWizardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HardwareSettingsWindow.xaml.cs">
+      <DependentUpon>HardwareSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\DeejControlWizardWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MIDIControlWizardWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HardwareSettingsWindow.xaml" />
     <Compile Include="Addon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -74,6 +121,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\UwpDesktop.10.0.14393.3\analyzers\dotnet\UwpDesktopAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\EarTrumpet\EarTrumpet\EarTrumpet.csproj">
