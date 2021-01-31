@@ -7,6 +7,7 @@ using EarTrumpet.UI.Helpers;
 using EarTrumpet.UI.ViewModels;
 using EarTrumpet.HardwareControls.Interop.Hardware;
 using EarTrumpet.HardwareControls.Views;
+using EarTrumpet.DataModel.Storage;
 
 namespace EarTrumpet.HardwareControls.ViewModels
 {
@@ -25,11 +26,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         public ICommand NewFromSelectedControlCommand { get; }
         public ItemModificationWays ItemModificationWay { get; set; }
         public int SelectedIndex { get; set; }
-        public bool IsTelemetryEnabled
-        {
-            get => _settings.IsTelemetryEnabled;
-            set => _settings.IsTelemetryEnabled = value;
-        }
+
         public ObservableCollection<string> HardwareControls
         {
             get
@@ -45,15 +42,15 @@ namespace EarTrumpet.HardwareControls.ViewModels
         }
 
         private WindowHolder _hardwareSettingsWindow;
-        private readonly AppSettings _settings;
+        private readonly ISettingsBag _settings;
         private DeviceCollectionViewModel _devices;
         ObservableCollection<String> _commandControlList = new ObservableCollection<string>();
 
-        public EarTrumpetHardwareControlsPageViewModel(AppSettings settings, DeviceCollectionViewModel devices) : base(null)
+        public EarTrumpetHardwareControlsPageViewModel() : base(null)
         {
-            _settings = settings;
-            _devices = devices;
-            Glyph = "\xF8A6";
+            _settings = Addon.Current.Settings;
+            _devices = Addon.Current.DeviceCollection;
+            Glyph = "\xE9A1";
             Title = Properties.Resources.HardwareControlsTitle;
 
             NewControlCommand = new RelayCommand(NewControl);

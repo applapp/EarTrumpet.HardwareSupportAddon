@@ -1,5 +1,9 @@
 ﻿using EarTrumpet.DataModel.Storage;
+using EarTrumpet.DataModel.WindowsAudio;
 using EarTrumpet.Extensibility;
+using EarTrumpet.HardwareControls.Interop.Hardware;
+using EarTrumpet.Shared.Extensions;
+using EarTrumpet.UI.ViewModels;
 using System;
 using System.ComponentModel.Composition;
 
@@ -14,16 +18,19 @@ namespace EarTrumpet.HardwareControls
         {
             get => new AddonInfo
             {
-                DisplayName = "Simple",
-                PublisherName = "File-New-Project",
+                DisplayName = "Hardware Controls",
+                PublisherName = "svenwml-and-skief",
                 Id = Namespace,
-                HelpLink = "https://github.com/File-New-Project/EarTrumpet",
+                HelpLink = "https://github.com/File-New-Project/EarTrumpet/pull/624",
                 AddonVersion = new Version(1, 0, 0, 0),
             };
         }
 
         public static Addon Current { get; private set; }
         public ISettingsBag Settings { get; private set; }
+        public DeviceCollectionViewModel DeviceCollection { get; private set; }
+
+        private HardwareManager m_hardwareManager;
 
         public void OnApplicationLifecycleEvent(ApplicationLifecycleEvent evt)
         {
@@ -32,7 +39,8 @@ namespace EarTrumpet.HardwareControls
                 Current = this;
                 Settings = StorageFactory.GetSettings(Namespace);
 
-                // Do startup work here.
+                DeviceCollection = ((App)App.Current).GetDeviceCollection();
+                m_hardwareManager = new HardwareManager(DeviceCollection, WindowsAudioFactory.Create(AudioDeviceKind.Playback));
             }
         }
     }

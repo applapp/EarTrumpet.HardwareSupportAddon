@@ -5,7 +5,6 @@ using System.Windows;
 using Windows.Devices.Midi;
 using EarTrumpet.DataModel.Audio;
 using EarTrumpet.UI.ViewModels;
-using EarTrumpet.UI.Views;
 using EarTrumpet.HardwareControls.Interop.Hardware;
 using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.HardwareControls.Views;

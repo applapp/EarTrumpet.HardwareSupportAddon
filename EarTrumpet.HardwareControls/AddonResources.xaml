@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctl="clr-namespace:EarTrumpet.UI.Controls;assembly=EarTrumpet"
+                    xmlns:ie="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:resx="clr-namespace:EarTrumpet.HardwareControls.Properties"
+                    xmlns:vm="clr-namespace:EarTrumpet.HardwareControls.ViewModels">
+
+    <DataTemplate DataType="{x:Type vm:EarTrumpetHardwareControlsPageViewModel}">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Style="{StaticResource BodyText}" Text="{x:Static resx:Resources.HardwareControlInformation}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Command="{Binding NewControlCommand}"
+                        Content="{x:Static resx:Resources.AddNewText}" />
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        Command="{Binding DeleteSelectedControlCommand}"
+                        Content="{x:Static resx:Resources.DeleteSelectedText}" />
+                <Button Grid.Row="1"
+                        Grid.Column="0"
+                        Command="{Binding EditSelectedControlCommand}"
+                        Content="{x:Static resx:Resources.EditSelectedText}" />
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Command="{Binding NewFromSelectedControlCommand}"
+                        Content="{x:Static resx:Resources.AddNewFromSelectedText}" />
+            </Grid>
+
+            <ctl:ListView HorizontalContentAlignment="Stretch"
+                          ItemsSource="{Binding HardwareControls}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          SelectedIndex="{Binding SelectedIndex}"
+                          SelectionMode="Single">
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="MouseDoubleClick">
+                        <ie:InvokeCommandAction Command="{Binding EditSelectedControlCommand}" />
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
+                <!--  here set the itemTemplate to a TextBlock that can wraps  -->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ctl:ListView>
+
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>
