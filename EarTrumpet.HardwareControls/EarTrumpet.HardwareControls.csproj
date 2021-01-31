@@ -137,4 +137,5 @@
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)\..\AddonPackage\make.cmd $(TargetName) $(OutDir) $(ConfigurationName)</PostBuildEvent>
   </PropertyGroup>
+ <Import Project="..\packages\UwpDesktop.10.0.14393.3\build\portable-net45+uap\UwpDesktop.targets" Condition="Exists('..\packages\UwpDesktop.10.0.14393.3\build\portable-net45+uap\UwpDesktop.targets')" />
 </Project>
