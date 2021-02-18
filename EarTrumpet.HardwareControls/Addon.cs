@@ -2,7 +2,6 @@
 using EarTrumpet.DataModel.WindowsAudio;
 using EarTrumpet.Extensibility;
 using EarTrumpet.HardwareControls.Interop.Hardware;
-using EarTrumpet.Shared.Extensions;
 using EarTrumpet.UI.ViewModels;
 using System;
 using System.ComponentModel.Composition;
@@ -39,7 +38,7 @@ namespace EarTrumpet.HardwareControls
                 Current = this;
                 Settings = StorageFactory.GetSettings(Namespace);
 
-                DeviceCollection = ((App)App.Current).GetDeviceCollection();
+                DeviceCollection = ((App)App.Current).CollectionViewModel;
                 m_hardwareManager = new HardwareManager(DeviceCollection, WindowsAudioFactory.Create(AudioDeviceKind.Playback));
             }
         }

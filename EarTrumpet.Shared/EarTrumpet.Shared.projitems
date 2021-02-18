@@ -9,14 +9,9 @@
     <Import_RootNamespace>EarTrumpet.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\AppExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Filter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\PlaybackDataModelHost.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DeviceIconhelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ResourceLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimpleIconSource.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿using EarTrumpet.Extensibility;
 using EarTrumpet.HardwareControls.ViewModels;
-using EarTrumpet.Shared;
+using EarTrumpet.Extensibility.Shared;
 using EarTrumpet.UI.ViewModels;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
