@@ -26,7 +26,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         public OSDWindowViewModel()
         {
             DisplaySettingsChanged = new RelayCommand(() => BeginClose());
-            _closeTimer.Interval = TimeSpan.FromSeconds(2);
+            _closeTimer.Interval = TimeSpan.FromSeconds(Addon.Current.Settings.Get("DisplayTime", 2));
             _closeTimer.Tick += (_, __) =>
             {
                 _closeTimer.Stop();
@@ -36,6 +36,11 @@ namespace EarTrumpet.HardwareControls.ViewModels
 
         public void ShowForContent(object content)
         {
+            if (!Addon.Current.Settings.Get("EnableOverlay", true))
+            {
+                return;
+            }
+            
             bool isChanged = content != OSDContent;
 
             OSDContent = content;
@@ -43,6 +48,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
 
             // Extend timeout
             _closeTimer.Stop();
+            _closeTimer.Interval = TimeSpan.FromSeconds(Addon.Current.Settings.Get("DisplayTime", 2));
             _closeTimer.Start();
 
             if (State == FlyoutViewState.Open)

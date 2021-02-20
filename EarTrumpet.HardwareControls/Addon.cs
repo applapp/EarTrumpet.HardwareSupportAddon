@@ -6,6 +6,7 @@ using EarTrumpet.UI.ViewModels;
 using System;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Windows;
 using EarTrumpet.DataModel.Audio;
 using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.HardwareControls.Views;
@@ -52,7 +53,7 @@ namespace EarTrumpet.HardwareControls
                 
                 
                 // Monitor the EarTrumpet flyout so we don't show when the flyout is showing.
-                _flyoutViewModel = (FlyoutViewModel)((App)App.Current).FlyoutWindow.DataContext;
+                _flyoutViewModel = (FlyoutViewModel)((App)Application.Current).FlyoutWindow.DataContext;
                 _flyoutViewModel.StateChanged += OnFlyoutViewModelStateChanged;
                 
                 // Create a window to use as OSD.
@@ -107,7 +108,7 @@ namespace EarTrumpet.HardwareControls
 
         private void TriggerOSDForDevice(string id)
         {
-            if (CanShowOSD())
+            if (CanShowOSD()) 
             {
                 _osdWindowViewModel.ShowForContent(DeviceCollection.AllDevices.FirstOrDefault(d => d.Id == id));
             }

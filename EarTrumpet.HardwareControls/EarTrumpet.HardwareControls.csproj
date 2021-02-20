@@ -84,6 +84,7 @@
     <Compile Include="ViewModels\DeejControlWizardViewModel.cs" />
     <Compile Include="ViewModels\MIDIControlWizardViewModel.cs" />
     <Compile Include="ViewModels\HardwareSettingsViewModel.cs" />
+    <Compile Include="ViewModels\OSDViewModel.cs" />
     <Compile Include="ViewModels\OSDWindowViewModel.cs" />
     <Compile Include="Views\DeejControlWizardWindow.xaml.cs">
       <DependentUpon>DeejControlWizardWindow.xaml</DependentUpon>

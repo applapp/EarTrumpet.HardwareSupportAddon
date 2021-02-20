@@ -19,6 +19,7 @@ namespace EarTrumpet.HardwareControls
                 "MIDI and other hardware devices", 
                 Addon.Current.Info.Id, new List<SettingsPageViewModel> {
                 new EarTrumpetHardwareControlsPageViewModel(),
+                new OSDViewModel(),
                 new AddonAboutPageViewModel(info),
             });
         }

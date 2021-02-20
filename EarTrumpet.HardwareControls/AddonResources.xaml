@@ -55,4 +55,63 @@
 
         </StackPanel>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:OSDViewModel}">
+        <StackPanel Orientation="Vertical">
+            <!-- TODO replace by OSDInformation -->
+            <TextBlock Style="{StaticResource BodyText}" Text="{x:Static resx:Resources.HardwareControlInformation}"/>
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="enabled" Content="Enable Overlay" IsChecked="{Binding EnableOverlay, Mode=TwoWay}"></CheckBox>
+                <GroupBox Grid.Row="1" x:Name="position" Header="Position" HorizontalAlignment="Stretch">
+                    <Grid Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.33*" />
+                            <ColumnDefinition Width="0.33*" />
+                            <ColumnDefinition Width="0.33*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.33*" />
+                            <RowDefinition Height="0.33*" />
+                            <RowDefinition Height="0.33*" />
+                        </Grid.RowDefinitions>
+                        
+                        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="topLeft" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" IsChecked="{Binding TopLeft, Mode=TwoWay}"></RadioButton>
+                        <RadioButton Grid.Row="0" Grid.Column="2" x:Name="topRight" Content="" VerticalAlignment="Top" HorizontalAlignment="Right" IsChecked="{Binding TopRight, Mode=TwoWay}"></RadioButton>
+                        <RadioButton Grid.Row="1" Grid.Column="1" x:Name="center" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Center, Mode=TwoWay}"></RadioButton>
+                        <RadioButton Grid.Row="2" Grid.Column="0" x:Name="bottomLeft" Content="" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsChecked="{Binding BottomLeft, Mode=TwoWay}"></RadioButton>
+                        <RadioButton Grid.Row="2" Grid.Column="2" x:Name="bottomRight" Content="" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsChecked="{Binding BottomRight, Mode=TwoWay}"></RadioButton>
+                    </Grid>
+                </GroupBox>
+                
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Row="0" Grid.Column="0" Content="X Offset" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding OffsetX, Mode=TwoWay}"></TextBox>
+                    
+                    <Label Grid.Row="1" Grid.Column="0" Content="Y Offset" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding OffsetY, Mode=TwoWay}"></TextBox>
+                    
+                    <Label Grid.Row="2" Grid.Column="0" Content="Display Time" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DisplayTime, Mode=TwoWay}"></TextBox>
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </DataTemplate>
 </ResourceDictionary>

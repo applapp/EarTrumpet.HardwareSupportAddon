@@ -5,6 +5,7 @@ using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.UI.Helpers;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace EarTrumpet.HardwareControls.Views
 {
@@ -88,36 +89,42 @@ namespace EarTrumpet.HardwareControls.Views
             double newHeight = LayoutRoot.DesiredSize.Height * this.DpiY();
 
             // Distance from corner to offset for each configuration.
-            double OffsetX = 64;
-            double OffsetY = 64;
+            double OffsetX = Addon.Current.Settings.Get("OffsetX", 64);
+            double OffsetY = Addon.Current.Settings.Get("OffsetY", 64);
 
-            switch (taskbar.Location)
+            var resolution = Screen.PrimaryScreen.WorkingArea;
+            
+            double x = 0;
+            double y = 0;
+
+            switch (Addon.Current.Settings.Get("OverlayPosition", "TopLeft"))
             {
-                case WindowsTaskbar.Position.Left:
-                    this.SetWindowPos(taskbar.Size.Bottom - newHeight - OffsetY,
-                              taskbar.Size.Right + OffsetX,
-                              newHeight,
-                              newWidth);
+                case "TopLeft":
+                    x = resolution.Left + OffsetX;
+                    y = resolution.Top + OffsetY;
                     break;
-                case WindowsTaskbar.Position.Right:
-                    this.SetWindowPos(taskbar.Size.Bottom - newHeight - OffsetY,
-                              taskbar.Size.Left - newWidth - OffsetX,
-                              newHeight,
-                              newWidth);
+                
+                case "TopRight":
+                    x = resolution.Right - newWidth - OffsetX;
+                    y = resolution.Top + OffsetY;
                     break;
-                case WindowsTaskbar.Position.Top:
-                    this.SetWindowPos(taskbar.Size.Bottom + OffsetY,
-                              FlowDirection == FlowDirection.RightToLeft ? taskbar.Size.Left + OffsetX : taskbar.Size.Right - newWidth - OffsetX,
-                              newHeight,
-                              newWidth);
+                
+                case "Center":
+                    x = (resolution.Right - resolution.Left - newWidth) / 2; 
+                    y = (resolution.Bottom - resolution.Top - newHeight) / 2; 
                     break;
-                case WindowsTaskbar.Position.Bottom:
-                    this.SetWindowPos(taskbar.Size.Top - newHeight - OffsetY,
-                              FlowDirection == FlowDirection.RightToLeft ? taskbar.Size.Left + OffsetX : taskbar.Size.Right - newWidth - OffsetX,
-                              newHeight,
-                              newWidth);
+                
+                case "BottomLeft":
+                    x = resolution.Left + OffsetX;
+                    y = resolution.Bottom - newHeight - OffsetY;
+                    break;
+                case "BottomRight":
+                    x = resolution.Right - newWidth - OffsetX;
+                    y = resolution.Bottom - newHeight - OffsetY;
                     break;
             }
+            
+            this.SetWindowPos(y, x, newHeight, newWidth);
         }
 
         private void EnableAcrylicIfApplicable(WindowsTaskbar.State taskbar)
