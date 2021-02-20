@@ -86,7 +86,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         {
             // Todo glyph & localization
             Glyph = "\uE75A";
-            Title = "Overlay";
+            Title = Properties.Resources.OverlayTitle;
             EnableOverlay = true;
         }
     }

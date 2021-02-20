@@ -59,7 +59,7 @@
     <DataTemplate DataType="{x:Type vm:OSDViewModel}">
         <StackPanel Orientation="Vertical">
             <!-- TODO replace by OSDInformation -->
-            <TextBlock Style="{StaticResource BodyText}" Text="{x:Static resx:Resources.HardwareControlInformation}"/>
+            <TextBlock Style="{StaticResource BodyText}" Text="{x:Static resx:Resources.OSDInformation}"/>
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -69,8 +69,8 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <CheckBox x:Name="enabled" Content="Enable Overlay" IsChecked="{Binding EnableOverlay, Mode=TwoWay}"></CheckBox>
-                <GroupBox Grid.Row="1" x:Name="position" Header="Position" HorizontalAlignment="Stretch">
+                <CheckBox x:Name="enabled" Content="{x:Static resx:Resources.EnableOverlayText}" IsChecked="{Binding EnableOverlay, Mode=TwoWay}"></CheckBox>
+                <GroupBox Grid.Row="1" x:Name="position" Header="{x:Static resx:Resources.PositionText}" HorizontalAlignment="Stretch">
                     <Grid Margin="0,0,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.33*" />
@@ -101,14 +101,14 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    
-                    <Label Grid.Row="0" Grid.Column="0" Content="X Offset" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:Resources.XOffsetText}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
                     <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding OffsetX, Mode=TwoWay}"></TextBox>
-                    
-                    <Label Grid.Row="1" Grid.Column="0" Content="Y Offset" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:Resources.YOffsetText}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding OffsetY, Mode=TwoWay}"></TextBox>
-                    
-                    <Label Grid.Row="2" Grid.Column="0" Content="Display Time" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:Resources.DisplayTimeText}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DisplayTime, Mode=TwoWay}"></TextBox>
                 </Grid>
             </Grid>

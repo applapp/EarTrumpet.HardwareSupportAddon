@@ -264,4 +264,25 @@
   <data name="SetAsDefaultDevice" xml:space="preserve">
     <value>Als Standardgerät festlegen</value>
   </data>
+  <data name="DisplayTimeText" xml:space="preserve">
+    <value>Anzeigezeit (Sekunden)</value>
+  </data>
+  <data name="EnableOverlayText" xml:space="preserve">
+    <value>Overlay aktivieren</value>
+  </data>
+  <data name="OSDInformation" xml:space="preserve">
+    <value>Zeige ein Overlay an, wenn Lautstärken über die Hardwaresteuerung verändert werden.</value>
+  </data>
+  <data name="OverlayTitle" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
+  <data name="PositionText" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="XOffsetText" xml:space="preserve">
+    <value>X-Versatz</value>
+  </data>
+  <data name="YOffsetText" xml:space="preserve">
+    <value>Y-Versatz</value>
+  </data>
 </root>

@@ -264,4 +264,25 @@
   <data name="CycleDefaultDevices" xml:space="preserve">
     <value>Cycle Default Device</value>
   </data>
+  <data name="DisplayTimeText" xml:space="preserve">
+    <value>Display Time (seconds)</value>
+  </data>
+  <data name="EnableOverlayText" xml:space="preserve">
+    <value>Enable Overlay</value>
+  </data>
+  <data name="OSDInformation" xml:space="preserve">
+    <value>Show an overlay when changing volumes using hardware controls.</value>
+  </data>
+  <data name="OverlayTitle" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
+  <data name="PositionText" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="XOffsetText" xml:space="preserve">
+    <value>X-Offset</value>
+  </data>
+  <data name="YOffsetText" xml:space="preserve">
+    <value>Y-Offset</value>
+  </data>
 </root>

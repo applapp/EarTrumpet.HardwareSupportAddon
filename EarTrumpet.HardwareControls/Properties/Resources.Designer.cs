@@ -223,11 +223,29 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Display Time (seconds).
+        /// </summary>
+        public static string DisplayTimeText {
+            get {
+                return ResourceManager.GetString("DisplayTimeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Selected.
         /// </summary>
         public static string EditSelectedText {
             get {
                 return ResourceManager.GetString("EditSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Overlay.
+        /// </summary>
+        public static string EnableOverlayText {
+            get {
+                return ResourceManager.GetString("EnableOverlayText", resourceCulture);
             }
         }
         
@@ -385,6 +403,33 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show an overlay when changing volumes using hardware controls..
+        /// </summary>
+        public static string OSDInformation {
+            get {
+                return ResourceManager.GetString("OSDInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlay.
+        /// </summary>
+        public static string OverlayTitle {
+            get {
+                return ResourceManager.GetString("OverlayTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        public static string PositionText {
+            get {
+                return ResourceManager.GetString("PositionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
         public static string PreviewValueText {
@@ -498,6 +543,24 @@ namespace EarTrumpet.HardwareControls.Properties {
         public static string UnknownDeviceTypeSelectedMessageText {
             get {
                 return ResourceManager.GetString("UnknownDeviceTypeSelectedMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X-Offset.
+        /// </summary>
+        public static string XOffsetText {
+            get {
+                return ResourceManager.GetString("XOffsetText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y-Offset.
+        /// </summary>
+        public static string YOffsetText {
+            get {
+                return ResourceManager.GetString("YOffsetText", resourceCulture);
             }
         }
     }
