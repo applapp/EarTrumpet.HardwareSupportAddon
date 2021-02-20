@@ -84,6 +84,7 @@
     <Compile Include="ViewModels\DeejControlWizardViewModel.cs" />
     <Compile Include="ViewModels\MIDIControlWizardViewModel.cs" />
     <Compile Include="ViewModels\HardwareSettingsViewModel.cs" />
+    <Compile Include="ViewModels\OSDWindowViewModel.cs" />
     <Compile Include="Views\DeejControlWizardWindow.xaml.cs">
       <DependentUpon>DeejControlWizardWindow.xaml</DependentUpon>
     </Compile>
@@ -92,6 +93,9 @@
     </Compile>
     <Compile Include="Views\HardwareSettingsWindow.xaml.cs">
       <DependentUpon>HardwareSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OSDWindow.xaml.cs">
+      <DependentUpon>OSDWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AddonResources.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +127,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,12 +135,16 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\UwpDesktop.10.0.14393.3\analyzers\dotnet\UwpDesktopAnalyzer.dll" />
+    <Page Include="Views\OSDWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\EarTrumpet\EarTrumpet\EarTrumpet.csproj">
       <Project>{ba3c7b42-84b0-468c-8640-217e2a24cf81}</Project>
       <Name>EarTrumpet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\UwpDesktop.10.0.14393.3\analyzers\dotnet\UwpDesktopAnalyzer.dll" />
   </ItemGroup>
   <Import Project="..\EarTrumpet.Shared\EarTrumpet.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

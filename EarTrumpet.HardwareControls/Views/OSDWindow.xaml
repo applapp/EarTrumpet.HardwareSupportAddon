@@ -1,0 +1,38 @@
+﻿<Window x:Class="EarTrumpet.HardwareControls.Views.OSDWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Theme="clr-namespace:EarTrumpet.UI.Themes;assembly=EarTrumpet"
+        xmlns:b="clr-namespace:EarTrumpet.UI.Behaviors;assembly=EarTrumpet"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:etvm="clr-namespace:EarTrumpet.UI.ViewModels;assembly=EarTrumpet"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:EarTrumpet.UI.Views;assembly=EarTrumpet"
+        Title="OSDWindow"
+        Width="250"
+        Theme:Brush.Foreground="Text"
+        Theme:Options.Scope="Flyout"
+        Theme:Options.Source="System"
+        b:FrameworkElementEx.DisplaySettingsChanged="{Binding DisplaySettingsChanged}"
+        b:FrameworkElementEx.FlowDirection="Auto"
+        AllowsTransparency="True"
+        Background="Transparent"
+        IsHitTestVisible="False"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Topmost="True"
+        SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display"
+        UseLayoutRounding="True"
+        WindowStyle="None"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type etvm:DeviceViewModel}">
+            <views:DeviceView Device="{Binding}" IsAppListVisible="False" />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Border>
+            <ContentControl Content="{Binding OSDContent}" />
+        </Border>
+    </Grid>
+</Window>
