@@ -1,11 +1,6 @@
 ﻿using EarTrumpet.UI.Helpers;
-using EarTrumpet.UI.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Threading;
 

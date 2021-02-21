@@ -2,7 +2,7 @@
 using EarTrumpet.DataModel.WindowsAudio;
 using System;
 
-namespace EarTrumpet.Shared.DataModel
+namespace EarTrumpet.HardwareControls.DataModel
 {
     public class PlaybackDataModelHost
     {

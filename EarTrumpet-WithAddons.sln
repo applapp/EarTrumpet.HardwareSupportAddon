@@ -5,15 +5,9 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarTrumpet", "..\EarTrumpet\EarTrumpet\EarTrumpet.csproj", "{BA3C7B42-84B0-468C-8640-217E2A24CF81}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "EarTrumpet.Shared", "EarTrumpet.Shared\EarTrumpet.Shared.shproj", "{D014A1DD-261D-4F9B-AD30-0A7E4B704170}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarTrumpet.HardwareControls", "EarTrumpet.HardwareControls\EarTrumpet.HardwareControls.csproj", "{89404C1F-FD59-4A02-9AC7-F7BF2AE1B177}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		EarTrumpet.Shared\EarTrumpet.Shared.projitems*{89404c1f-fd59-4a02-9ac7-f7bf2ae1b177}*SharedItemsImports = 4
-		EarTrumpet.Shared\EarTrumpet.Shared.projitems*{d014a1dd-261d-4f9b-ad30-0a7e4b704170}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
