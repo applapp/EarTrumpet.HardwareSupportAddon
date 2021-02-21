@@ -10,7 +10,7 @@ using System.Windows;
 using EarTrumpet.DataModel.Audio;
 using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.HardwareControls.Views;
-using EarTrumpet.Shared.DataModel;
+using EarTrumpet.HardwareControls.DataModel;
 
 namespace EarTrumpet.HardwareControls
 {
