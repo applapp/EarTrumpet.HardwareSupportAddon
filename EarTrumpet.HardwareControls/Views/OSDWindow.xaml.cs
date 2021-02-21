@@ -3,7 +3,6 @@ using EarTrumpet.Interop;
 using EarTrumpet.Interop.Helpers;
 using EarTrumpet.HardwareControls.ViewModels;
 using EarTrumpet.UI.Helpers;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Forms;
 

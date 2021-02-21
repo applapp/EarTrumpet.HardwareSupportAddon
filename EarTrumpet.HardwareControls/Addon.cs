@@ -1,52 +1,40 @@
-﻿using EarTrumpet.DataModel.Storage;
+﻿using EarTrumpet.DataModel.Audio;
 using EarTrumpet.DataModel.WindowsAudio;
 using EarTrumpet.Extensibility;
+using EarTrumpet.HardwareControls.DataModel;
 using EarTrumpet.HardwareControls.Interop.Hardware;
+using EarTrumpet.HardwareControls.ViewModels;
+using EarTrumpet.HardwareControls.Views;
 using EarTrumpet.UI.ViewModels;
-using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows;
-using EarTrumpet.DataModel.Audio;
-using EarTrumpet.HardwareControls.ViewModels;
-using EarTrumpet.HardwareControls.Views;
-using EarTrumpet.HardwareControls.DataModel;
 
 namespace EarTrumpet.HardwareControls
 {
-    [Export(typeof(IAddonLifecycle))]
-    class Addon : IAddonLifecycle
+    [Export(typeof(EarTrumpetAddon))]
+    class Addon : EarTrumpetAddon, IEarTrumpetAddonEvents, IEarTrumpetAddonSettingsPage
     {
-        public static string Namespace => "EarTrumpet.HardwareControls";
-
-        public AddonInfo Info
-        {
-            get => new AddonInfo
-            {
-                DisplayName = "Hardware Controls",
-                PublisherName = "svenwml-and-skief",
-                Id = Namespace,
-                HelpLink = "https://github.com/File-New-Project/EarTrumpet/pull/624",
-                AddonVersion = new Version(1, 0, 0, 0),
-            };
-        }
-
         public static Addon Current { get; private set; }
-        public ISettingsBag Settings { get; private set; }
+
         public DeviceCollectionViewModel DeviceCollection { get; private set; }
 
         private HardwareManager m_hardwareManager;
-        
         private OSDWindow _osdWindow;
         private OSDWindowViewModel _osdWindowViewModel;
         private FlyoutViewModel _flyoutViewModel;
 
-        public void OnApplicationLifecycleEvent(ApplicationLifecycleEvent evt)
+        public Addon() : base()
         {
-            if (evt == ApplicationLifecycleEvent.Startup)
+            DisplayName = Properties.Resources.HardwareControlsTitle;
+        }
+
+        public void OnAddonEvent(AddonEventKind evt)
+        {
+            if (evt == AddonEventKind.InitializeAddon)
             {
                 Current = this;
-                Settings = StorageFactory.GetSettings(Namespace);
 
                 DeviceCollection = ((App)App.Current).CollectionViewModel;
                 m_hardwareManager = new HardwareManager(DeviceCollection, WindowsAudioFactory.Create(AudioDeviceKind.Playback));
@@ -66,7 +54,20 @@ namespace EarTrumpet.HardwareControls
                 PlaybackDataModelHost.Current.DevicePropertyChanged += OnDevicePropertyChanged;
             }
         }
-        
+
+        public SettingsCategoryViewModel GetSettingsCategory()
+        {
+            LoadAddonResources();
+            return new SettingsCategoryViewModel(
+                "Hardware Support",
+                "\xE9A1",
+                "MIDI and other hardware devices",
+                Manifest.Id, new List<SettingsPageViewModel> {
+                new EarTrumpetHardwareControlsPageViewModel(),
+                new OSDViewModel(),
+            });
+        }
+
         private void OnFlyoutViewModelStateChanged(object sender, object e)
         {
             if (_flyoutViewModel.State != UI.Helpers.FlyoutViewState.Hidden)

@@ -80,7 +80,6 @@
     <Compile Include="Interop\MIDI\MidiConfiguration.cs" />
     <Compile Include="Interop\MIDI\MidiIn.cs" />
     <Compile Include="Interop\MIDI\MidiInDevice.cs" />
-    <Compile Include="SettingsPageAddon.cs" />
     <Compile Include="ViewModels\EarTrumpetHardwareControlsPageViewModel.cs" />
     <Compile Include="ViewModels\DeejControlWizardViewModel.cs" />
     <Compile Include="ViewModels\MIDIControlWizardViewModel.cs" />
@@ -129,6 +128,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
+    <None Include="AddonManifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
