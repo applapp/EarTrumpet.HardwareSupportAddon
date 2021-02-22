@@ -223,7 +223,7 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display Time (seconds).
+        ///   Looks up a localized string similar to Display Time (Seconds).
         /// </summary>
         public static string DisplayTimeText {
             get {
@@ -547,7 +547,7 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to X-Offset.
+        ///   Looks up a localized string similar to X-Offset (Pixels).
         /// </summary>
         public static string XOffsetText {
             get {
@@ -556,7 +556,7 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Y-Offset.
+        ///   Looks up a localized string similar to Y-Offset (Pixels).
         /// </summary>
         public static string YOffsetText {
             get {

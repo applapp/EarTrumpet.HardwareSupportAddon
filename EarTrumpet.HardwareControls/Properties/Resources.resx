@@ -265,7 +265,7 @@
     <value>Cycle Default Device</value>
   </data>
   <data name="DisplayTimeText" xml:space="preserve">
-    <value>Display Time (seconds)</value>
+    <value>Display Time (Seconds)</value>
   </data>
   <data name="EnableOverlayText" xml:space="preserve">
     <value>Enable Overlay</value>
@@ -280,9 +280,9 @@
     <value>Position</value>
   </data>
   <data name="XOffsetText" xml:space="preserve">
-    <value>X-Offset</value>
+    <value>X-Offset (Pixels)</value>
   </data>
   <data name="YOffsetText" xml:space="preserve">
-    <value>Y-Offset</value>
+    <value>Y-Offset (Pixels)</value>
   </data>
 </root>

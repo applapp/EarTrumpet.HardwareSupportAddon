@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-<data name="TypeText" xml:space="preserve">
+  <data name="TypeText" xml:space="preserve">
     <value>Typ</value>
   </data>
   <data name="UnknownDeviceSelectedMessageText" xml:space="preserve">
@@ -280,9 +280,9 @@
     <value>Position</value>
   </data>
   <data name="XOffsetText" xml:space="preserve">
-    <value>X-Versatz</value>
+    <value>X-Versatz (Pixel)</value>
   </data>
   <data name="YOffsetText" xml:space="preserve">
-    <value>Y-Versatz</value>
+    <value>Y-Versatz (Pixel)</value>
   </data>
 </root>
