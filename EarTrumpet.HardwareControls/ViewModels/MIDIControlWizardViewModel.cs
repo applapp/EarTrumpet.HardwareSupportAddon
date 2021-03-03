@@ -99,6 +99,12 @@ namespace EarTrumpet.HardwareControls.ViewModels
                     return;
                 }
 
+                // New maximum scaling value may be lower than currently selected scaling value.
+                if (ScalingValue > ScalingMaximum)
+                {
+                    ScalingValue = ScalingMaximum;
+                }
+
                 RaisePropertyChanged("ScaleMinValueSelectDescription");
                 RaisePropertyChanged("ScaleMaxValueSelectDescription");
                 RaisePropertyChanged("MidiWizardMinMaxInstructions");
