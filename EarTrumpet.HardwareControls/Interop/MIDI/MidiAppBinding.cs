@@ -147,7 +147,7 @@ namespace EarTrumpet.HardwareControls.Interop.MIDI
                 }
                 case ControllerTypes.RotaryEncoder when msg.ControlValue == midiConfig.MinValue:
                 {
-                    newVolume -= 1;
+                    newVolume -= (int)midiConfig.ScalingValue;
                     if (newVolume < 0)
                     {
                         newVolume = 0;
@@ -159,7 +159,7 @@ namespace EarTrumpet.HardwareControls.Interop.MIDI
                 {
                     if (msg.ControlValue == midiConfig.MaxValue)
                     {
-                        newVolume += 1;
+                        newVolume += (int)midiConfig.ScalingValue;
                         
                         if (newVolume > 100)
                         {
