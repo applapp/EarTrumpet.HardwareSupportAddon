@@ -15,6 +15,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         public ICommand SelectControlCommand { get; }
         public string SelectedControl { get; set; }
         public string SelectedIndexesApplications { set; get; }
+        public string HardwareSettingsText { set; get; }
         public string SelectedDevice
         {
             set
@@ -166,7 +167,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
             get
             {
                 ObservableCollection<String> deviceTypes = new ObservableCollection<string>();
-                deviceTypes.AddRange(HardwareManager.Current.GetDeviceTypes());
+                deviceTypes.AddRange(HardwareManager.Current.GetDeviceTypes(_mode));
 
                 return deviceTypes;
             }
@@ -232,10 +233,18 @@ namespace EarTrumpet.HardwareControls.ViewModels
         private HardwareConfiguration _hardwareConfiguration = null;
         private CommandControlMappingElement _commandControlMappingElement = null;
         private EarTrumpetHardwareControlsPageViewModel _hardwareControls = null;
+        private EarTrumpetHardwareFeedbackPageViewModel _hardwareFeedback = null;
         private ObservableCollection<String> _commands = new ObservableCollection<string>();
+        // "control" or "feedback"
+        private String _mode;
 
         public HardwareSettingsViewModel(DeviceCollectionViewModel devices, EarTrumpetHardwareControlsPageViewModel earTrumpetHardwareControlsPageViewModel)
         {
+            _mode = "control";
+
+            // Set window title.
+            HardwareSettingsText = Properties.Resources.HardwareSettingsTextControls;
+
             // Set default commands.
             _commands.Add(Properties.Resources.AudioDeviceVolumeText);
             _commands.Add(Properties.Resources.AudioDeviceMuteText);
@@ -276,10 +285,70 @@ namespace EarTrumpet.HardwareControls.ViewModels
             }
         }
 
+        public HardwareSettingsViewModel(DeviceCollectionViewModel devices, EarTrumpetHardwareFeedbackPageViewModel earTrumpetHardwareFeedbackPageViewModel)
+        {
+            // TODO
+
+            _mode = "feedback";
+
+            // Set window title.
+            HardwareSettingsText = Properties.Resources.HardwareSettingsTextFeedback;
+
+            // Set default commands.
+            _commands.Add(Properties.Resources.AudioDeviceVolumeText);
+            _commands.Add(Properties.Resources.AudioDeviceMuteText);
+            _commands.Add(Properties.Resources.ApplicationVolumeText);
+            _commands.Add(Properties.Resources.ApplicationMuteText);
+
+            _devices = devices;
+            _hardwareFeedback = earTrumpetHardwareFeedbackPageViewModel;
+
+            SelectControlCommand = new RelayCommand(SelectControl);
+            SaveCommandControlMappingCommand = new RelayCommand(SaveCommandControlMapping);
+
+            switch (_hardwareFeedback.ItemModificationWay)
+            {
+                case EarTrumpetHardwareFeedbackPageViewModel.ItemModificationWays.NEW_EMPTY:
+
+                    // Set default command.
+                    SelectedCommand = Properties.Resources.AudioDeviceVolumeText;
+
+                    // Set default device type.
+                    SelectedDeviceType = "MIDI";
+
+                    // Set default selection.
+                    SelectedControl = Properties.Resources.NoControlSelectedMessage;
+
+                    break;
+                case EarTrumpetHardwareFeedbackPageViewModel.ItemModificationWays.EDIT_EXISTING:
+                case EarTrumpetHardwareFeedbackPageViewModel.ItemModificationWays.NEW_FROM_EXISTING:
+                    var selectedMappingElement = HardwareManager.Current.GetCommandControlMappings()[_hardwareControls.SelectedIndex];
+
+                    FillForm(selectedMappingElement);
+                    break;
+
+                default:
+                    // Do not fill widgets.
+                    break;
+            }
+        }
+
         public void SelectControl()
         {
-            _ControlWizardWindow = HardwareManager.Current.GetHardwareWizard(SelectedDeviceType, this,
-                _hardwareConfiguration);
+            if (_mode == "control")
+            {
+                _ControlWizardWindow = HardwareManager.Current.GetHardwareControlWizard(SelectedDeviceType, this,
+                    _hardwareConfiguration);
+            }
+            else if (_mode == "feedback")
+            {
+                _ControlWizardWindow = HardwareManager.Current.GetHardwareFeedbackWizard(SelectedDeviceType, this,
+                    _hardwareConfiguration);
+            }
+            else
+            {
+                throw new Exception("Unknown mode selected.");
+            }
 
             if (_ControlWizardWindow != null)
             {

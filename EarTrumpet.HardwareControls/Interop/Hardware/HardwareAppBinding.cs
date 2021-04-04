@@ -19,7 +19,7 @@ namespace EarTrumpet.HardwareControls.Interop.Hardware
         public abstract void RemoveCommandAt(int index);
         public abstract void ModifyCommandAt(int index, CommandControlMappingElement newCommand);
         
-        public abstract Window GetConfigurationWindow(HardwareSettingsViewModel hardwareSettingsViewModel, 
+        public abstract Window GetConfigurationWindow(HardwareSettingsViewModel hardwareSettingsViewModel, String mode,
             HardwareConfiguration loadConfig = null);
 
         public abstract int CalculateVolume(int value, int minValue, int maxValue, float scalingValue);

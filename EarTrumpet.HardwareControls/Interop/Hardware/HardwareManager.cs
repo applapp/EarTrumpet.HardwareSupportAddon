@@ -30,6 +30,33 @@ namespace EarTrumpet.HardwareControls.Interop.Hardware
             Current = this;
         }
 
+        public List<CommandFeedbackMappingElement> GetCommandFeedbackMappings()
+        {
+            // TODO
+
+            var result = new List<CommandFeedbackMappingElement>();
+            foreach (var binding in bindings.Values)
+            {
+                //result.AddRange(binding.GetCommandFeedbackMappings());
+            }
+
+            return result;
+        }
+        public void AddCommandFeedback(CommandFeedbackMappingElement commandFeedback)
+        {
+            // TODO
+        }
+
+        public void RemoveCommandFeedbackAt(int index)
+        {
+            // TODO
+        }
+
+        public void ModifyCommandFeedbackAt(int index, CommandFeedbackMappingElement newCommand)
+        {
+            // TODO
+        }
+
         public List<CommandControlMappingElement> GetCommandControlMappings()
         {
             var result = new List<CommandControlMappingElement>();
@@ -117,9 +144,34 @@ namespace EarTrumpet.HardwareControls.Interop.Hardware
             }
         }
         
-        public List<string> GetDeviceTypes()
+        // mode is "control" or "feedback".
+        public List<string> GetDeviceTypes(String mode)
         {
-            return bindings.Values.Select(value => value.Name).ToList();
+            List<string> allDeviceTypes = bindings.Values.Select(value => value.Name).ToList();
+            List<string> compatibleDeviceTypes = new List<string>();
+
+            foreach (var type in allDeviceTypes)
+            {
+                if(mode == "control")
+                {
+                    // All device types supported.
+                    compatibleDeviceTypes.Add(type);
+                }
+                else if(mode == "feedback")
+                {
+                    // Feedback is only supported for MIDI device type.
+                    if(type == MidiAppBinding.Current.Name)
+                    {
+                        compatibleDeviceTypes.Add(type);
+                    }
+                }
+                else
+                {
+                    throw new Exception("Invalid device type!");
+                }
+            }
+
+            return compatibleDeviceTypes;
         }
 
         public string GetConfigType(CommandControlMappingElement config)
@@ -140,7 +192,25 @@ namespace EarTrumpet.HardwareControls.Interop.Hardware
             return "";
         }
 
-        public WindowHolder GetHardwareWizard(string deviceType, HardwareSettingsViewModel hardwareSettingsViewModel, 
+        public string GetConfigType(CommandFeedbackMappingElement config)
+        {
+            foreach (var type in bindings.Keys)
+            {
+                try
+                {
+                    var c = Convert.ChangeType(config.hardwareConfiguration, type);
+                    return bindings[type].Name;
+                }
+                catch (InvalidCastException)
+                {
+
+                }
+            }
+
+            return "";
+        }
+
+        public WindowHolder GetHardwareControlWizard(string deviceType, HardwareSettingsViewModel hardwareSettingsViewModel, 
             HardwareConfiguration loadedConfig=null)
         {
             Window CreateWindow()
@@ -149,7 +219,26 @@ namespace EarTrumpet.HardwareControls.Interop.Hardware
                 {
                     if (bindings[key].Name == deviceType)
                     {
-                        return bindings[key].GetConfigurationWindow(hardwareSettingsViewModel, loadedConfig);
+                        return bindings[key].GetConfigurationWindow(hardwareSettingsViewModel, "control", loadedConfig);
+                    }
+                }
+
+                return null;
+            }
+
+            return new WindowHolder(CreateWindow);
+        }
+
+        public WindowHolder GetHardwareFeedbackWizard(string deviceType, HardwareSettingsViewModel hardwareSettingsViewModel,
+            HardwareConfiguration loadedConfig = null)
+        {
+            Window CreateWindow()
+            {
+                foreach (var key in bindings.Keys)
+                {
+                    if (bindings[key].Name == deviceType)
+                    {
+                        return bindings[key].GetConfigurationWindow(hardwareSettingsViewModel, "feedback", loadedConfig);
                     }
                 }
 

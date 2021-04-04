@@ -295,11 +295,38 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send feedback on commands (volume changes, mute state changes, default device changes) to a controller hardware (MIDI supported). This can be used for indicator LEDs and motorized faders..
+        /// </summary>
+        public static string HardwareFeedbackInformation {
+            get {
+                return ResourceManager.GetString("HardwareFeedbackInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware Feedback.
+        /// </summary>
+        public static string HardwareFeedbackTitle {
+            get {
+                return ResourceManager.GetString("HardwareFeedbackTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add / Edit Hardware Control.
         /// </summary>
-        public static string HardwareSettingsText {
+        public static string HardwareSettingsTextControls {
             get {
-                return ResourceManager.GetString("HardwareSettingsText", resourceCulture);
+                return ResourceManager.GetString("HardwareSettingsTextControls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add / Edit Hardware Feedback.
+        /// </summary>
+        public static string HardwareSettingsTextFeedback {
+            get {
+                return ResourceManager.GetString("HardwareSettingsTextFeedback", resourceCulture);
             }
         }
         
@@ -376,6 +403,15 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MIDI Feedback Wizard.
+        /// </summary>
+        public static string MidiFeedbackWizardText {
+            get {
+                return ResourceManager.GetString("MidiFeedbackWizardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimum.
         /// </summary>
         public static string MinimumText {
@@ -390,6 +426,15 @@ namespace EarTrumpet.HardwareControls.Properties {
         public static string ModeText {
             get {
                 return ResourceManager.GetString("ModeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No command feedback selected!.
+        /// </summary>
+        public static string NoCommandFeedbackSelectedMessage {
+            get {
+                return ResourceManager.GetString("NoCommandFeedbackSelectedMessage", resourceCulture);
             }
         }
         

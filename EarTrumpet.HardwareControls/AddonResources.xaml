@@ -55,7 +55,58 @@
 
         </StackPanel>
     </DataTemplate>
-    
+
+    <DataTemplate DataType="{x:Type vm:EarTrumpetHardwareFeedbackPageViewModel}">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Style="{StaticResource BodyText}" Text="{x:Static resx:Resources.HardwareFeedbackInformation}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Command="{Binding NewCommandFeedback}"
+                        Content="{x:Static resx:Resources.AddNewText}" />
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        Command="{Binding DeleteSelectedCommandFeedback}"
+                        Content="{x:Static resx:Resources.DeleteSelectedText}" />
+                <Button Grid.Row="1"
+                        Grid.Column="0"
+                        Command="{Binding EditSelectedCommandFeedback}"
+                        Content="{x:Static resx:Resources.EditSelectedText}" />
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Command="{Binding NewFromSelectedCommandFeedback}"
+                        Content="{x:Static resx:Resources.AddNewFromSelectedText}" />
+            </Grid>
+
+            <ctl:ListView HorizontalContentAlignment="Stretch"
+                          ItemsSource="{Binding HardwareControls}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          SelectedIndex="{Binding SelectedIndex}"
+                          SelectionMode="Single">
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="MouseDoubleClick">
+                        <ie:InvokeCommandAction Command="{Binding EditSelectedCommandFeedback}" />
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
+                <!--  here set the itemTemplate to a TextBlock that can wraps  -->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ctl:ListView>
+
+        </StackPanel>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:OSDViewModel}">
         <StackPanel Orientation="Vertical">
             <!-- TODO replace by OSDInformation -->

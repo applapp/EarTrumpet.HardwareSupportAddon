@@ -73,9 +73,14 @@ namespace EarTrumpet.HardwareControls.Interop.Deej
             SaveSettings(SAVEKEY);
         }
 
-        public override Window GetConfigurationWindow(HardwareSettingsViewModel hardwareSettingsViewModel, 
+        public override Window GetConfigurationWindow(HardwareSettingsViewModel hardwareSettingsViewModel, String mode,
             HardwareConfiguration loadedConfig = null)
         {
+            if(mode != "control")
+            {
+                throw new Exception("Invalid mode!");
+            }
+
             DeejControlWizardViewModel viewModel = null;
 
             if (loadedConfig == null || !(loadedConfig is DeejConfiguration))

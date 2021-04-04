@@ -126,7 +126,7 @@
   <data name="HardwareControlInformation" xml:space="preserve">
     <value>Control system- and application volumes using a controller hardware (MIDI and deej devices supported).</value>
   </data>
-  <data name="HardwareSettingsText" xml:space="preserve">
+  <data name="HardwareSettingsTextControls" xml:space="preserve">
     <value>Add / Edit Hardware Control</value>
   </data>
   <data name="MidiDeviceText" xml:space="preserve">
@@ -284,5 +284,20 @@
   </data>
   <data name="YOffsetText" xml:space="preserve">
     <value>Y-Offset (Pixels)</value>
+  </data>
+  <data name="HardwareFeedbackTitle" xml:space="preserve">
+    <value>Hardware Feedback</value>
+  </data>
+  <data name="NoCommandFeedbackSelectedMessage" xml:space="preserve">
+    <value>No command feedback selected!</value>
+  </data>
+  <data name="HardwareFeedbackInformation" xml:space="preserve">
+    <value>Send feedback on commands (volume changes, mute state changes, default device changes) to a controller hardware (MIDI supported). This can be used for indicator LEDs and motorized faders.</value>
+  </data>
+  <data name="HardwareSettingsTextFeedback" xml:space="preserve">
+    <value>Add / Edit Hardware Feedback</value>
+  </data>
+  <data name="MidiFeedbackWizardText" xml:space="preserve">
+    <value>MIDI Feedback Wizard</value>
   </data>
 </root>

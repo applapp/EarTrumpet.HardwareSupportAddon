@@ -72,6 +72,7 @@
     <Compile Include="Interop\Deej\DeejConfiguration.cs" />
     <Compile Include="Interop\Deej\DeejIn.cs" />
     <Compile Include="Interop\Deej\MonotonicTimestamp.cs" />
+    <Compile Include="Interop\Hardware\CommandFeedbackMappingElement.cs" />
     <Compile Include="Interop\Hardware\CommandControlMappingElement.cs" />
     <Compile Include="Interop\Hardware\HardwareAppBinding.cs" />
     <Compile Include="Interop\Hardware\HardwareConfiguration.cs" />
@@ -80,14 +81,19 @@
     <Compile Include="Interop\MIDI\MidiConfiguration.cs" />
     <Compile Include="Interop\MIDI\MidiIn.cs" />
     <Compile Include="Interop\MIDI\MidiInDevice.cs" />
+    <Compile Include="ViewModels\EarTrumpetHardwareFeedbackPageViewModel.cs" />
     <Compile Include="ViewModels\EarTrumpetHardwareControlsPageViewModel.cs" />
     <Compile Include="ViewModels\DeejControlWizardViewModel.cs" />
+    <Compile Include="ViewModels\MIDIFeedbackWizardViewModel.cs" />
     <Compile Include="ViewModels\MIDIControlWizardViewModel.cs" />
     <Compile Include="ViewModels\HardwareSettingsViewModel.cs" />
     <Compile Include="ViewModels\OSDViewModel.cs" />
     <Compile Include="ViewModels\OSDWindowViewModel.cs" />
     <Compile Include="Views\DeejControlWizardWindow.xaml.cs">
       <DependentUpon>DeejControlWizardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MIDIFeedbackWizardWindow.xaml.cs">
+      <DependentUpon>MIDIFeedbackWizardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MIDIControlWizardWindow.xaml.cs">
       <DependentUpon>MIDIControlWizardWindow.xaml</DependentUpon>
@@ -103,6 +109,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DeejControlWizardWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MIDIFeedbackWizardWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MIDIControlWizardWindow.xaml">

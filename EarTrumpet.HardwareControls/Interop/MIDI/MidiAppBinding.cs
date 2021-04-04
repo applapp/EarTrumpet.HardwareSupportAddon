@@ -80,23 +80,47 @@ namespace EarTrumpet.HardwareControls.Interop.MIDI
             SaveSettings(SAVEKEY);
         }
         
-        public override Window GetConfigurationWindow(HardwareSettingsViewModel hardwareSettingsViewModel, 
+        public override Window GetConfigurationWindow(HardwareSettingsViewModel hardwareSettingsViewModel, String mode,
             HardwareConfiguration loadedConfig = null)
         {
-            MIDIControlWizardViewModel viewModel = null;
-           
-            if (!(loadedConfig is MidiConfiguration))
+            if (mode == "control")
             {
-                viewModel = new MIDIControlWizardViewModel(Properties.Resources.MidiControlWizardText, 
-                    hardwareSettingsViewModel);
+                MIDIControlWizardViewModel viewModel = null;
+
+                if (!(loadedConfig is MidiConfiguration))
+                {
+                    viewModel = new MIDIControlWizardViewModel(Properties.Resources.MidiControlWizardText,
+                        hardwareSettingsViewModel);
+                }
+                else
+                {
+                    viewModel = new MIDIControlWizardViewModel(Properties.Resources.MidiControlWizardText,
+                        hardwareSettingsViewModel, (MidiConfiguration)loadedConfig);
+                }
+
+                return new MIDIControlWizardWindow { DataContext = viewModel };
+            }
+            else if (mode == "feedback")
+            {
+                MIDIFeedbackWizardViewModel viewModel = null;
+
+                if (!(loadedConfig is MidiConfiguration))
+                {
+                    viewModel = new MIDIFeedbackWizardViewModel(Properties.Resources.MidiControlWizardText,
+                        hardwareSettingsViewModel);
+                }
+                else
+                {
+                    viewModel = new MIDIFeedbackWizardViewModel(Properties.Resources.MidiControlWizardText,
+                        hardwareSettingsViewModel, (MidiConfiguration)loadedConfig);
+                }
+
+                return new MIDIFeedbackWizardWindow { DataContext = viewModel };
             }
             else
             {
-                viewModel = new MIDIControlWizardViewModel(Properties.Resources.MidiControlWizardText,
-                    hardwareSettingsViewModel, (MidiConfiguration)loadedConfig);
+                throw new Exception("Invalid mode!");
             }
-
-            return new MIDIControlWizardWindow { DataContext = viewModel};
         }
 
         public override int CalculateVolume(int value, int minValue, int maxValue, float scalingValue)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:resx="clr-namespace:EarTrumpet.HardwareControls.Properties"
         xmlns:b="clr-namespace:EarTrumpet.UI.Behaviors;assembly=EarTrumpet"
-        Title="{x:Static resx:Resources.HardwareSettingsText}"
+        Title="{Binding HardwareSettingsText}"
         Width="341"
         Height="361.334"
         mc:Ignorable="d">

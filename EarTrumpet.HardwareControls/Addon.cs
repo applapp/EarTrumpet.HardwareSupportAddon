@@ -64,6 +64,7 @@ namespace EarTrumpet.HardwareControls
                 "MIDI and other hardware devices",
                 Manifest.Id, new List<SettingsPageViewModel> {
                 new EarTrumpetHardwareControlsPageViewModel(),
+                new EarTrumpetHardwareFeedbackPageViewModel(),
                 new OSDViewModel(),
             });
         }
