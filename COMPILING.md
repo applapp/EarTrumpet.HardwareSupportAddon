@@ -10,5 +10,7 @@
 3. Open the solution `EarTrumpet-WithAddons.sln` in Visual Studio.
 
 4. Build the project folder with both projects (EarTrumpet and EarTrumpet.HardwareControls).
+   
+   **Note:** Currently, addons are only loaded in **Debug** builds.
 
 5. Run the application.
