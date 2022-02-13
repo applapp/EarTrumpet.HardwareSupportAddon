@@ -189,6 +189,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         {
             // Check for valid widget entries.
             if (string.IsNullOrEmpty(SelectedDeej) ||
+                CapturedDeejInControls.Count <= 0 ||
                 string.IsNullOrEmpty(CapturedDeejInControls[CapturedDeejInControlsSelected]))
             {
                 MessageBox.Show(Properties.Resources.IncompleteDeviceConfigurationMessage, "EarTrumpet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
