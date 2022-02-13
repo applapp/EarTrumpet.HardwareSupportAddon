@@ -109,8 +109,8 @@ namespace EarTrumpet.HardwareControls.Views
                     break;
                 
                 case "Center":
-                    x = (resolution.Right - resolution.Left - newWidth) / 2; 
-                    y = (resolution.Bottom - resolution.Top - newHeight) / 2; 
+                    x = ((resolution.Right - resolution.Left - newWidth) / 2) + OffsetX;
+                    y = ((resolution.Bottom - resolution.Top - newHeight) / 2) + OffsetY;
                     break;
                 
                 case "BottomLeft":
