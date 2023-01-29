@@ -30,5 +30,10 @@ namespace EarTrumpet.HardwareControls.Interop.Deej
             return $"Com Port={Port}, Channel={Channel}, Min Value={MinValue}, Max Value={MaxValue}," +
                    $" Scaling Value={ScalingValue}";
         }
+
+        public override string ToStringCompact()
+        {
+            return $"deej {Port}/{Channel}";
+        }
     }
 }

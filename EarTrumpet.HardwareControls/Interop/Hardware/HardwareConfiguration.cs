@@ -9,5 +9,6 @@ namespace EarTrumpet.HardwareControls.Interop.Hardware
     public abstract class HardwareConfiguration
     {
         public abstract override string ToString();
+        public abstract string ToStringCompact();
     }
 }

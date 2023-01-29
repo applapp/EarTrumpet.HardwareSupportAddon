@@ -142,6 +142,15 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to B.
+        /// </summary>
+        public static string ButtonShortText {
+            get {
+                return ResourceManager.GetString("ButtonShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Button.
         /// </summary>
         public static string ButtonText {
@@ -340,11 +349,110 @@ namespace EarTrumpet.HardwareControls.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LP.
+        /// </summary>
+        public static string LinearPotentiometerShortText {
+            get {
+                return ResourceManager.GetString("LinearPotentiometerShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Linear Potentiometer.
         /// </summary>
         public static string LinearPotentiometerText {
             get {
                 return ResourceManager.GetString("LinearPotentiometerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mappings.
+        /// </summary>
+        public static string MappingsListHeaderAltText {
+            get {
+                return ResourceManager.GetString("MappingsListHeaderAltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device or App.
+        /// </summary>
+        public static string MappingsListHeaderContextText {
+            get {
+                return ResourceManager.GetString("MappingsListHeaderContextText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware Control.
+        /// </summary>
+        public static string MappingsListHeaderControlText {
+            get {
+                return ResourceManager.GetString("MappingsListHeaderControlText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mapping Type.
+        /// </summary>
+        public static string MappingsListHeaderTypeText {
+            get {
+                return ResourceManager.GetString("MappingsListHeaderTypeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Mute.
+        /// </summary>
+        public static string MappingsListTypeAppMuteText {
+            get {
+                return ResourceManager.GetString("MappingsListTypeAppMuteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Volume.
+        /// </summary>
+        public static string MappingsListTypeAppVolText {
+            get {
+                return ResourceManager.GetString("MappingsListTypeAppVolText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle Device.
+        /// </summary>
+        public static string MappingsListTypeCycleDevText {
+            get {
+                return ResourceManager.GetString("MappingsListTypeCycleDevText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Device.
+        /// </summary>
+        public static string MappingsListTypeSetDevText {
+            get {
+                return ResourceManager.GetString("MappingsListTypeSetDevText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Mute.
+        /// </summary>
+        public static string MappingsListTypeSysMuteText {
+            get {
+                return ResourceManager.GetString("MappingsListTypeSysMuteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Volume.
+        /// </summary>
+        public static string MappingsListTypeSysVolText {
+            get {
+                return ResourceManager.GetString("MappingsListTypeSysVolText", resourceCulture);
             }
         }
         
@@ -453,6 +561,15 @@ namespace EarTrumpet.HardwareControls.Properties {
         public static string ReleasedText {
             get {
                 return ResourceManager.GetString("ReleasedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RE.
+        /// </summary>
+        public static string RotaryEncoderShortText {
+            get {
+                return ResourceManager.GetString("RotaryEncoderShortText", resourceCulture);
             }
         }
         

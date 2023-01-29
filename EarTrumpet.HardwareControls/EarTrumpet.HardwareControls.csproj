@@ -69,6 +69,7 @@
     <Compile Include="Interop\MIDI\MidiConfiguration.cs" />
     <Compile Include="Interop\MIDI\MidiIn.cs" />
     <Compile Include="Interop\MIDI\MidiInDevice.cs" />
+    <Compile Include="ViewModels\ControlMappingListEntry.cs" />
     <Compile Include="ViewModels\EarTrumpetHardwareControlsPageViewModel.cs" />
     <Compile Include="ViewModels\DeejControlWizardViewModel.cs" />
     <Compile Include="ViewModels\MIDIControlWizardViewModel.cs" />

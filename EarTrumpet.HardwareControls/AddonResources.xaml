@@ -39,18 +39,26 @@
                           ItemsSource="{Binding HardwareControls}"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           SelectedIndex="{Binding SelectedIndex}"
-                          SelectionMode="Single">
+                          SelectionMode="Single"
+                          Margin="10 10 20 10">
                 <ie:Interaction.Triggers>
                     <ie:EventTrigger EventName="MouseDoubleClick">
                         <ie:InvokeCommandAction Command="{Binding EditSelectedControlCommand}" />
                     </ie:EventTrigger>
                 </ie:Interaction.Triggers>
-                <!--  here set the itemTemplate to a TextBlock that can wraps  -->
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="{x:Static resx:Resources.MappingsListHeaderAltText}">
+                        <GridViewColumn
+                            Header="{x:Static resx:Resources.MappingsListHeaderTypeText}"
+                            DisplayMemberBinding="{Binding Path=Type}"/>
+                        <GridViewColumn
+                            Header="{x:Static resx:Resources.MappingsListHeaderContextText}"
+                            DisplayMemberBinding="{Binding Path=Context}"/>
+                        <GridViewColumn
+                            Header="{x:Static resx:Resources.MappingsListHeaderControlText}"
+                            DisplayMemberBinding="{Binding Path=Control}"/>
+                    </GridView>
+                </ListView.View>
             </ctl:ListView>
 
         </StackPanel>
