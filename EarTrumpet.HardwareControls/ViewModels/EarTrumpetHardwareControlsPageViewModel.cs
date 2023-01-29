@@ -161,7 +161,6 @@ namespace EarTrumpet.HardwareControls.ViewModels
                 switch (item.command) {
                     case CommandControlMappingElement.Command.ApplicationVolume:
                     case CommandControlMappingElement.Command.ApplicationMute:
-                        entry.Type = Properties.Resources.MappingsListTypeAppVolText;
                         if (item.mode == CommandControlMappingElement.Mode.Indexed) {
                             entry.Context = "[ " + item.indexApplicationSelection + " ]";
                         } else {
