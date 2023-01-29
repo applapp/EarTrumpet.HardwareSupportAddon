@@ -285,4 +285,43 @@
   <data name="YOffsetText" xml:space="preserve">
     <value>Y-Offset (Pixels)</value>
   </data>
+  <data name="ButtonShortText" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="LinearPotentiometerShortText" xml:space="preserve">
+    <value>LP</value>
+  </data>
+  <data name="RotaryEncoderShortText" xml:space="preserve">
+    <value>RE</value>
+  </data>
+  <data name="MappingsListHeaderAltText" xml:space="preserve">
+    <value>Mappings</value>
+  </data>
+  <data name="MappingsListHeaderContextText" xml:space="preserve">
+    <value>Device or App</value>
+  </data>
+  <data name="MappingsListHeaderControlText" xml:space="preserve">
+    <value>Hardware Control</value>
+  </data>
+  <data name="MappingsListHeaderTypeText" xml:space="preserve">
+    <value>Mapping Type</value>
+  </data>
+  <data name="MappingsListTypeAppMuteText" xml:space="preserve">
+    <value>App Mute</value>
+  </data>
+  <data name="MappingsListTypeAppVolText" xml:space="preserve">
+    <value>App Volume</value>
+  </data>
+  <data name="MappingsListTypeCycleDevText" xml:space="preserve">
+    <value>Cycle Device</value>
+  </data>
+  <data name="MappingsListTypeSetDevText" xml:space="preserve">
+    <value>Set Device</value>
+  </data>
+  <data name="MappingsListTypeSysMuteText" xml:space="preserve">
+    <value>System Mute</value>
+  </data>
+  <data name="MappingsListTypeSysVolText" xml:space="preserve">
+    <value>System Volume</value>
+  </data>
 </root>

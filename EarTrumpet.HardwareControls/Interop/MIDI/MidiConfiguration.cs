@@ -54,6 +54,20 @@ namespace EarTrumpet.HardwareControls.Interop.MIDI
             }
         }
 
+        public static string GetControllerTypeShortString(ControllerTypes controllerType)
+        {
+            switch (controllerType) {
+                case ControllerTypes.LinearPotentiometer:
+                    return Properties.Resources.LinearPotentiometerShortText;
+                case ControllerTypes.Button:
+                    return Properties.Resources.ButtonShortText;
+                case ControllerTypes.RotaryEncoder:
+                    return Properties.Resources.RotaryEncoderShortText;
+                default:
+                    return "";
+            }
+        }
+
         public static ControllerTypes GetControllerType(string controllerTypeString)
         {
             if (GetControllerTypeString(ControllerTypes.LinearPotentiometer) == controllerTypeString)
@@ -79,6 +93,11 @@ namespace EarTrumpet.HardwareControls.Interop.MIDI
             return $"Device={MidiDevice}, Channel={Channel}, Controller={Controller}, " +
                    $"Controller Type={GetControllerTypeString(ControllerType)}, " +
                    $"Min Value={MinValue}, Max Value={MaxValue}, Scaling Value={ScalingValue}";
+        }
+
+        public override string ToStringCompact()
+        {
+            return $"MIDI {Channel}/{Controller}/{GetControllerTypeShortString(ControllerType)}";
         }
     }
 }

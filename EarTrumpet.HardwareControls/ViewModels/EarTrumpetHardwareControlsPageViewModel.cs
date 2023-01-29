@@ -27,7 +27,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         public ItemModificationWays ItemModificationWay { get; set; }
         public int SelectedIndex { get; set; }
 
-        public ObservableCollection<string> HardwareControls
+        public ObservableCollection<ControlMappingListEntry> HardwareControls
         {
             get
             {
@@ -44,7 +44,7 @@ namespace EarTrumpet.HardwareControls.ViewModels
         private WindowHolder _hardwareSettingsWindow;
         private readonly ISettingsBag _settings;
         private DeviceCollectionViewModel _devices;
-        ObservableCollection<String> _commandControlList = new ObservableCollection<string>();
+        ObservableCollection<ControlMappingListEntry> _commandControlList = new ObservableCollection<ControlMappingListEntry>();
 
         public EarTrumpetHardwareControlsPageViewModel() : base(null)
         {
@@ -142,22 +142,46 @@ namespace EarTrumpet.HardwareControls.ViewModels
         {
             var commandControlsList = HardwareManager.Current.GetCommandControlMappings();
 
-            ObservableCollection<String> commandControlsStringList = new ObservableCollection<string>();
+            ObservableCollection<ControlMappingListEntry> mappings = new ObservableCollection<ControlMappingListEntry>();
 
             foreach (var item in commandControlsList)
             {
-                string commandControlsString =
-                    "Audio Device=" + item.audioDevice +
-                    ", Command=" + item.command +
-                    ", Mode=" + item.mode +
-                    ", Selection=" + item.indexApplicationSelection +
-                    ", Device Type=" + HardwareManager.Current.GetConfigType(item) + ", " +
-                    item.hardwareConfiguration;
+                var entry = new ControlMappingListEntry();
 
-                commandControlsStringList.Add(commandControlsString);
+                switch (item.command) {
+                    case CommandControlMappingElement.Command.SystemVolume: entry.Type = Properties.Resources.MappingsListTypeSysVolText; break;
+                    case CommandControlMappingElement.Command.SystemMute: entry.Type = Properties.Resources.MappingsListTypeSysMuteText; break;
+                    case CommandControlMappingElement.Command.ApplicationVolume: entry.Type = Properties.Resources.MappingsListTypeAppVolText; break;
+                    case CommandControlMappingElement.Command.ApplicationMute: entry.Type = Properties.Resources.MappingsListTypeAppMuteText; break;
+                    case CommandControlMappingElement.Command.SetDefaultDevice: entry.Type = Properties.Resources.MappingsListTypeSetDevText; break;
+                    case CommandControlMappingElement.Command.CycleDefaultDevice: entry.Type = Properties.Resources.MappingsListTypeCycleDevText; break;
+                    default: entry.Type = item.command.ToString(); break;
+                }
+
+                switch (item.command) {
+                    case CommandControlMappingElement.Command.ApplicationVolume:
+                    case CommandControlMappingElement.Command.ApplicationMute:
+                        if (item.mode == CommandControlMappingElement.Mode.Indexed) {
+                            entry.Context = "[ " + item.indexApplicationSelection + " ]";
+                        } else {
+                            entry.Context = item.indexApplicationSelection;
+                        }
+                        break;
+                    case CommandControlMappingElement.Command.SystemVolume:
+                    case CommandControlMappingElement.Command.SystemMute:
+                    case CommandControlMappingElement.Command.SetDefaultDevice:
+                    case CommandControlMappingElement.Command.CycleDefaultDevice:
+                    default:
+                        entry.Context = item.audioDevice;
+                        break;
+                }
+
+                entry.Control = item.hardwareConfiguration.ToStringCompact();
+
+                mappings.Add(entry);
             }
 
-            HardwareControls = commandControlsStringList;
+            HardwareControls = mappings;
         }
     }
 }
